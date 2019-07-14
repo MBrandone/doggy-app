@@ -1,13 +1,13 @@
 import React from "react"
 import doggyLogo from "./doggy-logo.png"
-import "./App.css"
+import "./css/App.css"
 
 function random(array) {
   return array[Math.floor(Math.random() * array.length)]
 }
 
 const animations = [
-  "spin-animation",
+  "fast-spin-animation",
   "bounce-animation",
   "shake-animation",
   "shrink-animation"
@@ -42,7 +42,7 @@ class App extends React.Component {
 
   changeAnim() {
     const image = document.getElementsByClassName("App-logo");
-    image[0].classList.remove("spin-animation", "bounce-animation", "shake-animation", "shrink-animation");
+    image[0].classList.remove("fast-spin-animation", "spin-animation", "bounce-animation", "shake-animation", "shrink-animation");
     image[0].classList.add(random(animations));
   }
 
