@@ -41,9 +41,15 @@ class App extends React.Component {
   }
 
   changeAnim() {
-    const image = document.getElementsByClassName("App-logo");
-    image[0].classList.remove("fast-spin-animation", "spin-animation", "bounce-animation", "shake-animation", "shrink-animation");
-    image[0].classList.add(random(animations));
+    const logo = document.getElementsByClassName("App-logo")[0];
+    let animationsPossibles = animations;
+    animations.forEach(animation => {
+      if (logo.classList.contains(animation)) {
+        logo.classList.remove(animation);
+        animationsPossibles = animationsPossibles.filter(animationPossible => animationPossible !== animation);
+      }
+    })
+    logo.classList.add(random(animationsPossibles));
   }
 
 
