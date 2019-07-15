@@ -14,12 +14,14 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  cursor: pointer;
 }
 
 button {
   background-color: transparent;
   outline: none;
   border: transparent;
+  cursor: pointer;
 }
 
 .fast-spin-animation {

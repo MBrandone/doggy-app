@@ -19,6 +19,9 @@ class App extends React.Component {
     this.state = {
       citations: [
         "Pépite !",
+        "Arrêtez de me limer ! Nom de Zeus !",
+        "Tu veux une blague zoophile ? C'est un mec qui rentre dans un bar ...",
+        "Rio, à Barra Club, l'autoroute du cul je te dis !",
         "Senior Manager de mon cul !",
         "J'en veux Jooooooooooe !",
         "Et ce soir ... on chope !",
@@ -64,7 +67,7 @@ class App extends React.Component {
             {random(this.state.citations)}
           </div>
           <button onClick={this.handleClick}>
-            Clique moi !
+            Autre citation !
           </button>
         </div>
       </div>
