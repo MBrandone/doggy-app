@@ -20,7 +20,7 @@ class App extends React.Component {
       citations: [
         "Pépite !",
         "Arrêtez de me limer ! Nom de Zeus !",
-        "Tu veux une blague zoophile ? C'est un mec qui rentre dans un bar ...",
+        "Tu veux une blague zoophile ?\nC'est un mec qui rentre dans un bar ...",
         "Rio, à Barra Club, l'autoroute du cul je te dis !",
         "Senior Manager de mon cul !",
         "J'en veux Jooooooooooe !",
