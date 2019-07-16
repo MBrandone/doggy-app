@@ -1,17 +1,10 @@
 import React from "react"
-import doggyLogo from "./doggy-logo.png"
 import "./css/App.css"
+import DoggyLogo from "./Components/DoggyLogo/DoggyLogo"
 
 function random(array) {
   return array[Math.floor(Math.random() * array.length)]
 }
-
-const animations = [
-  "fast-spin-animation",
-  "bounce-animation",
-  "shake-animation",
-  "shrink-animation"
-]
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +21,7 @@ class App extends React.Component {
         "Et ce soir ... on chope !",
         "Tu sais pas qui chui !",
         "Y a 5 places dans une Mégane.",
+        "Ah mais moi, j'aime bien quand les mecs viennent me voir.",
         "Missile !",
         "Oh l'enfer !",
         "Ah !"
@@ -35,7 +29,6 @@ class App extends React.Component {
       currentCitation: ""
     }
     this.handleClick = this.handleClick.bind(this)
-    this.changeAnim = this.changeAnim.bind(this)
   }
 
   handleClick() {
@@ -44,26 +37,11 @@ class App extends React.Component {
     this.setState(state)
   }
 
-  changeAnim() {
-    const logo = document.getElementsByClassName("App-logo")[0];
-    let animationsPossibles = animations;
-    animations.forEach(animation => {
-      if (logo.classList.contains(animation)) {
-        logo.classList.remove(animation);
-        animationsPossibles = animationsPossibles.filter(animationPossible => animationPossible !== animation);
-      }
-    })
-    logo.classList.add(random(animationsPossibles));
-  }
-
-
   render() {
     return (
       <div className="App">
         <div className="container">
-          <button onClick={this.changeAnim}>
-            <img src={doggyLogo} className="App-logo" alt="logo"/>
-          </button>
+          <DoggyLogo/>
           <div className="citation">
             {random(this.state.citations)}
           </div>

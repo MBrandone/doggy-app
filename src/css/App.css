@@ -6,109 +6,13 @@
 }
 
 .container {
+  width: 100%;
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-  cursor: pointer;
-}
-
-button {
-  background-color: transparent;
-  outline: none;
-  border: transparent;
-  cursor: pointer;
-}
-
-.fast-spin-animation {
-  animation-name: fast-spin;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-duration: 1.5s;
-  animation-fill-mode: backwards;
-}
-
-.bounce-animation {
-  animation-name: bounce;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 4;
-  animation-direction: alternate;
-  animation-duration: 0.3s;
-
-}
-
-.shrink-animation {
-  animation-name: shrink;
-  animation-iteration-count: 2;
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.5s;
-}
-
-.shake-animation {
-  animation-name: shake;
-  animation-iteration-count: 10;
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.1s;
-}
-
 .citation {
   font-weight: 600;
-  font-size: 30px;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes fast-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(2160deg);
-  }
-}
-
-/*Petit très rapide au départ*/
-
-@keyframes shake {
-  0% {
-    transform: translate(-15px);
-  }
-  50% {
-    transform: translate(15px);
-  }
-  100% {
-    transform: translate(-15px);
-  }
-}
-
-@keyframes shrink {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes bounce {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-40%);
-  }
+  font-size: 28px;
 }
