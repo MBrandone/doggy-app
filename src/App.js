@@ -24,7 +24,12 @@ class App extends React.Component {
         "Ah mais moi, j'aime bien quand les mecs viennent me voir.",
         "Missile !",
         "Oh l'enfer !",
-        "Ah !"
+        "Mais téma wesh !",
+        "OOOOOOOOUUuuuuuuuuwwwAAAAAAAAAAAAAAA",
+        "Ah !",
+        "Je suis à Creteil Soleil ce WE.",
+        "On se retrouve en bas, on y va molo",
+        "Molo, on a dit !",
       ],
       currentCitation: ""
     }
