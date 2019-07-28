@@ -1,0 +1,137 @@
+.paroles-de-doggy {
+    color: #0A315D;
+    padding: 10px;
+}
+
+.lien-home {
+    color: #0A315D;
+    font-size: 16px;
+}
+
+/*--- ecran de début ------*/
+
+h1 {
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+    margin: auto;
+}
+
+.bouton-go {
+    display: flex;
+    margin: auto;
+    margin-top: 120px;
+    background-color: #0A315D;
+    border-radius: 999px;
+    width: 125px;
+    height: 125px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20em;
+}
+
+/*---- jeu --------*/
+
+.jeu {
+    margin-top: 30px;
+}
+
+.score {
+    text-align: center;
+    font-weight: bold;
+}
+
+.citation {
+    margin-top: 50px;
+    text-align: center;
+    font-style: italic;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.reponse {
+    margin: auto;
+    max-width: 200px;
+    height: 20px;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+.bouton-soumettre {
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    background-color: white;
+    color: #0A315D;
+    border: 1px solid #0A315D;
+    border-radius: 999px;
+    width: 230px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.correction {
+    text-align: center;
+    font-weight: bold;
+}
+
+.bouton-citation-suivante {
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #0A315D;
+    border-radius: 999px;
+    width: 230px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.photo-cyg-triste {
+    display: flex;
+    margin: auto;
+    max-height: 130px;
+    max-width: 100%;
+}
+
+/*-------ecran finale --------*/
+
+.ecran-fin {
+    margin-top: 100px;
+}
+
+.score-finale {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bouton-rejouer {
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #0A315D;
+    border-radius: 999px;
+    width: 230px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+

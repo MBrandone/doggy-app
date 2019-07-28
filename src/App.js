@@ -1,62 +1,27 @@
 import React from "react"
 import "./css/App.css"
 import DoggyLogo from "./Components/DoggyLogo/DoggyLogo"
-
-function random(array) {
-  return array[Math.floor(Math.random() * array.length)]
-}
+import { NavLink } from "react-router-dom"
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      citations: [
-        "Pépite !",
-        "Arrêtez de me limer ! Nom de Zeus !",
-        "Blague zoophile ? C'est un mec qui rentre dans un bar ...",
-        "Blague zoophile ? C'est un mec qui prend son élan ...",
-        "Rio, à Barra Club, l'autoroute du cul je te dis !",
-        "Senior Manager de mon cul !",
-        "J'en veux Jooooooooooe !",
-        "Et ce soir ... on chope !",
-        "Tu sais pas qui chui !",
-        "Y a 5 places dans une Mégane.",
-        "Ah mais moi, j'aime bien quand les mecs viennent me voir.",
-        "Missile !",
-        "Oh l'enfer !",
-        "Mais téma wesh !",
-        "OOOOOOOOUUuuuuuuuuwwwAAAAAAAAAAAAAAA",
-        "Ah !",
-        "Je suis à Creteil Soleil ce WE.",
-        "On se retrouve en bas, on y va molo",
-        "Molo, on a dit !",
-      ],
-      currentCitation: ""
-    }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick() {
-    const state = this.state
-    state.currentCitation = random(state.citations)
-    this.setState(state)
+    this.state = {}
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="container">
+      <div className="accueil">
+        <div className="conteneur">
           <DoggyLogo/>
-          <div className="citation">
-            {random(this.state.citations)}
+          <div className="lien">
+            <NavLink className="nav-link" to="/paroles-de-doggy">
+              <span className="texte-lien">Jouer à Paroles de Doggy</span>
+            </NavLink>
           </div>
-          <button onClick={this.handleClick}>
-            Autre citation !
-          </button>
         </div>
       </div>
     )
-
   }
 }
 
