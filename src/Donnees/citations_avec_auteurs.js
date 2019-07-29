@@ -86,10 +86,10 @@ export default [
   },
   //DAS
   {
-    auteurs: ["DAS", "CYG"],
+    auteurs: ["BME", "RDO"],
     citation: "On se retrouve en bas, on y va molo."
   },{
-    auteurs: ["DAS", "CYG"],
+    auteurs: ["BEJ", "CYG"],
     citation: "Molo, on a dit !"
   },{
     auteurs: ["DAS"],
