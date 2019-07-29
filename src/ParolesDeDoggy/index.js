@@ -35,6 +35,7 @@ class App extends React.Component {
   startGame() {
     const state = this.state
     state.gameStarted = true
+    state.citationSoumise = random(citations)
     this.setState(state)
   }
 
