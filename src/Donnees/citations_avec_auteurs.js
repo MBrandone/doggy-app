@@ -13,10 +13,13 @@ export default [
     citation: "Salto cul nu !"
   },{
     auteurs: ["CYG"],
-    citation: "Il est ricard moins quart."
+    citation: "Il est ricard moins l'quart."
   },{
     auteurs: ["CYG"],
     citation: "Problème de chaudière ..."
+  },{
+    auteurs: ["CYG"],
+    citation: "Moi le matin je n'enfile pas que des pantoufles"
   },
   //RDO
   {
@@ -184,6 +187,10 @@ export default [
     auteurs: ["MEG"],
     citation: "Je suis à Creteil Soleil ce WE."
   },
+  {
+    auteurs: ["MEG"],
+    citation: "C'est jamais assez chaud"
+  },
   //CEM
   {
     auteurs: ["CEM"],
@@ -192,6 +199,10 @@ export default [
   {
     auteurs: ["CEM"],
     citation: "Toi ..., je te kiffe !"
+  },
+  {
+    auteurs: ["CEM"],
+    citation: "Manager, c'est pas mettre des doigts"
   },
   //SLU
   {
