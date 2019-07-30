@@ -86,6 +86,12 @@ export default [
   },{
     auteurs: ["BRM"],
     citation: "Nan mais pour moi ..."
+  },{
+    auteurs: ["BRM"],
+    citation: "Ah ! y'a des olives par ici"
+  },{
+    auteurs: ["BRM", "CYG"],
+    citation: "Olive !"
   },
   //DAS
   {
