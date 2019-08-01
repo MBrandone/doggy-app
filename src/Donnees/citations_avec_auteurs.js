@@ -63,6 +63,9 @@ export default [
   },{
     auteurs: ["BEJ"],
     citation: "Comme elle est belle !"
+  },{
+    auteurs: ["BEJ"],
+    citation: "J'étais à 2 doigts de mettre le 3ème"
   },
   //BRM
   {
@@ -170,6 +173,9 @@ export default [
   },{
     auteurs: ["JDO"],
     citation: "Nan mais ce mec ..."
+  },,{
+    auteurs: ["JDO"],
+    citation: "On a pas 95 ans ..."
   },
   //FAM
   {
@@ -193,6 +199,10 @@ export default [
     auteurs: ["CEM"],
     citation: "Toi ..., je te kiffe !"
   },
+  {
+    auteurs: ["CEM"],
+    citation: "Manager, c'est pas mettre des doigts."
+  },
   //SLU
   {
     auteurs: ["SLU"],
@@ -215,6 +225,14 @@ export default [
   {
     auteurs: ["MID"],
     citation: "Quand je suis triste, j'ai besoin de boire."
+  },
+  {
+    auteurs: ["MID"],
+    citation: "Je suis une vraie pute des langages."
+  },
+  {
+    auteurs: ["MID"],
+    citation: "Tiens ! Va au Kaddok t'acheter de l'alcool !"
   }
   //JORO
 ]

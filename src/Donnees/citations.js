@@ -74,8 +74,8 @@ export default [
   "J'arrive dans 1h avec des tréteaux",
   "Qui est dispo pour un déménagement, j'offre les bières.",
   //CAN
-  //"Ah mais moi, je vais sur Grinder et je trouve direct !"
+  "Ah mais moi, je vais sur Grinder et je trouve direct !",
   //JORO
   //MID
-  ""
+  "Quand je suis triste, j'ai besoin de boire."
 ]
