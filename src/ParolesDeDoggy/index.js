@@ -11,13 +11,13 @@ function random(array) {
 
 const stateInitial = {
   citationsDisponibles: citations,
-  citationSoumise: random(citations),
+  citationSoumise: "",
   reponseSoumise: "",
   reponseCorrecte: false,
   reponseIncorrecte: false,
   score: 0,
-  gameStarted: false,
-  gameFinished: false,
+  jeuCommence: false,
+  jeuFini: false,
   afficherEcranFinale: false
 }
 
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   startGame() {
     const state = this.state
-    state.gameStarted = true
+    state.jeuCommence = true
     state.citationSoumise = random(citations)
     this.setState(state)
   }
@@ -47,7 +47,7 @@ class App extends React.Component {
       state.score++
     } else {
       state.reponseIncorrecte = true
-      state.gameFinished = true
+      state.jeuFini = true
     }
     this.setState(state)
     if (state.gameFinished) {
@@ -77,7 +77,7 @@ class App extends React.Component {
   }
 
   recommencer() {
-    stateInitial.gameStarted = false
+    stateInitial.jeuCommence = false
     this.setState(stateInitial)
   }
 
@@ -92,13 +92,13 @@ class App extends React.Component {
           </div>
           <div>
             {
-              !this.state.gameStarted &&
+              !this.state.jeuCommence &&
               <div className="bouton-go">
                 <Bouton onClick={this.startGame} texte="Go !"></Bouton>
               </div>
             }
             {
-              this.state.gameStarted && !this.state.afficherEcranFinale &&
+              this.state.jeuCommence && !this.state.afficherEcranFinale &&
               <div className="jeu">
                 <p className="score">Ton score : {this.state.score}</p>
                 <blockquote className="citation">"{this.state.citationSoumise.citation}"</blockquote>
