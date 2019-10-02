@@ -1,6 +1,6 @@
 import React from "react"
 import Bouton from "../Components/Bouton"
-import citations from "../Donnees/citations_avec_auteurs"
+import citations from "../Donnees/citations"
 import cygTriste from "../cyg-triste.jpeg"
 import "../css/paroles-de-doggy.css"
 import { NavLink } from "react-router-dom"
