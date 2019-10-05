@@ -52,7 +52,7 @@ Pour apprendre React [React documentation](https://reactjs.org/).
 
 https://facebook.github.io/create-react-app/docs/code-splitting
 
-### AAnalyser la taille du bundle
+### Analyser la taille du bundle
 
 https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
