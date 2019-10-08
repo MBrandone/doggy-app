@@ -22,8 +22,8 @@ class JeuParolesDeDoggy extends React.Component{
     return (
       <div>
         <Score score={this.props.score}/>
-        {this.props.defi && <IntituleDefi defi={this.props.defi}/>}
-        {this.props.defi && <FormulaireReponse reponseSoumise={this.props.passerAEtapeSuivante}/>}
+        {this.props.intitule && <IntituleDefi intitule={this.props.intitule}/>}
+        {this.props.intitule && <FormulaireReponse reponseSoumise={this.props.passerAEtapeSuivante}/>}
         {this.props.reponseDonnee && <MessageCorrection aDonneBonneReponse={this.props.aDonneBonneReponse}/>}
         {this.props.aDonneMauvaiseReponse && <NavLink to={"/paroles-de-doggy-redux/resultats"}>Voir les résultats</NavLink>}
       </div>
@@ -33,7 +33,7 @@ class JeuParolesDeDoggy extends React.Component{
 
 const mapStateToProps = state => ({
   score: state.score,
-  defi: state.defi,
+  intitule: state.question.intitule,
   correction: state.correction,
   reponseDonnee: state.correction !== null,
   aDonneBonneReponse: state.correction === true,

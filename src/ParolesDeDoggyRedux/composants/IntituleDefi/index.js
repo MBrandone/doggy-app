@@ -1,15 +1,15 @@
 import React from "react"
 import PropTypes from 'prop-types'
 
-const IntituleDefi = ({ defi }) => (
+const IntituleDefi = ({ intitule }) => (
   <div>
     <p>Quel Doggy a dit ...</p>
-    <blockquote>{ defi.citation }</blockquote>
+    <blockquote>{ intitule }</blockquote>
   </div>
 )
 
 IntituleDefi.propTypes = {
-  defi: PropTypes.object.isRequired
+  intitule: PropTypes.string.isRequired
 }
 
 export default IntituleDefi

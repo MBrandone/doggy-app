@@ -8,9 +8,9 @@ function random(array) {
 function DeterminerQuatrePropositions(defi, ensemblePropositions) {
   let ensemblePropositionsSansBonnesReponses = ensemblePropositions.filter(proposition => defi.auteurs.includes(proposition) !== true)
   const premiereProposition = random(ensemblePropositionsSansBonnesReponses)
-  ensemblePropositions.filter(proposition => proposition !== premiereProposition)
+  ensemblePropositionsSansBonnesReponses = ensemblePropositionsSansBonnesReponses.filter(proposition => proposition !== premiereProposition)
   const deuxiemeProposition = random(ensemblePropositionsSansBonnesReponses)
-  ensemblePropositions.filter(proposition => proposition !== premiereProposition)
+  ensemblePropositionsSansBonnesReponses = ensemblePropositionsSansBonnesReponses.filter(proposition => proposition !== deuxiemeProposition)
   const troisiemeProposition = random(ensemblePropositionsSansBonnesReponses)
   return melanger([random(defi.auteurs), premiereProposition, deuxiemeProposition, troisiemeProposition])
 }
@@ -27,13 +27,15 @@ function melanger(tableau) {
 
 const stateInitial = {
   joueursDisponibles: doggies,
-  joueur: null,
   citationsDisponibles: citations,
-  defi: null,
-  reponsesPossibles: null,
-  reponse: "",
+  joueur: null,
+  question: {
+    intitule: "",
+    propositions: [],
+    solutions: []
+  },
+  reponse: null,
   correction: null,
-  solution: null,
   score: 0
 }
 
@@ -47,11 +49,17 @@ const etat = (state = stateInitial, action) => {
       }
     case 'CHOISIR_NOUVEAU_DEFI':
       const defi = random(state.citationsDisponibles)
-      const reponsesPossibles = DeterminerQuatrePropositions(defi, trigrammes(state.joueursDisponibles))
+      const propositions = DeterminerQuatrePropositions(defi, trigrammes(state.joueursDisponibles))
+      const question = {
+        intitule: defi.citation,
+        propositions,
+        solutions: defi.auteurs
+      }
       return {
         ...state,
+        question,
         defi,
-        reponsesPossibles
+        reponsesPossibles: propositions
       }
     case 'CHOISIR_DEFI_EN_FONCTION_REPONSE_PRECEDENTE':
       let nouveauDefi
@@ -61,14 +69,21 @@ const etat = (state = stateInitial, action) => {
         nouveauDefi = random(state.citationsDisponibles)
         nouvellesPropositions = DeterminerQuatrePropositions(nouveauDefi, trigrammes(state.joueursDisponibles))
       } else {
-        nouveauDefi = null
+        nouveauDefi = { citation: ""}
         nouvellesPropositions = null
         solution = state.defi.auteurs
       }
+      const nouvelleQuestion = {
+        intitule: nouveauDefi.citation,
+        propositions: nouvellesPropositions,
+        solutions: nouveauDefi.auteurs
+      }
       return {
         ...state,
+        question: nouvelleQuestion,
         defi: nouveauDefi,
         reponsesPossibles: nouvellesPropositions,
+        reponse: null,
         solution
       }
     case 'SAUVEGARDER_REPONSE':
@@ -77,7 +92,7 @@ const etat = (state = stateInitial, action) => {
         reponse: action.reponse
       }
     case 'CORRIGER_REPONSE':
-      const correction = state.defi.auteurs.includes(state.reponse)
+      const correction = state.question.solutions.includes(state.reponse)
       return {
         ...state,
         correction
@@ -89,13 +104,12 @@ const etat = (state = stateInitial, action) => {
         score: nouveauScore
       }
     case 'RETIRER_DEFI_DES_DEFIS_DISPONIBLES':
-      const citationCourante = state.defi.citation
+      const citationCourante = state.question.intitule
       const citationsDisponibles = state.citationsDisponibles.filter(citation => citation.citation !== citationCourante)
       return {
         ...state,
         citationsDisponibles
       }
-
     default:
       return state
   }
