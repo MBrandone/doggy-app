@@ -1,0 +1,58 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.accueil {
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+
+  height: 300px;
+
+  .logo {
+    margin: auto;
+    margin-bottom: 50px;
+    position: relative;
+
+    .aubergine {
+      position: absolute;
+      left: 15px;
+      bottom: 10px;
+    }
+
+    .peche {
+      position: absolute;
+      right: -10px;
+    }
+  }
+
+  .tema-wesh {
+    margin: auto;
+    margin-bottom: 63px;
+    font-family: $arial-rounded;
+
+    .texte-lien {
+      min-width: 192px;
+      height: 48px;
+      background: $blanc;
+      line-height: 48px;
+      text-align: center;
+      letter-spacing: 1.14px;
+      border-radius: 999px;
+    }
+  }
+
+  .sponsor {
+    margin: auto;
+
+    p {
+      color: $blanc;
+      text-align: center;
+
+      font-family: $anton;
+      opacity: 0.5;
+      font-size: 12px;
+      letter-spacing: 0.98px;
+    }
+  }
+}
