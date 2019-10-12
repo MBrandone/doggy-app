@@ -1,14 +1,14 @@
-import Score from "./composants/Score"
-import IntituleDefi from "./composants/IntituleDefi"
-import FormulaireReponse from "./composants/FormulaireReponse"
-import MessageCorrection from "./composants/MessageCorrection"
+import Score from "../../composants/Score"
+import IntituleDefi from "../../composants/IntituleDefi"
+import FormulaireReponse from "../../conteneurs/FormulaireReponse"
+import MessageCorrection from "../../composants/MessageCorrection"
 import {
   choisirNouveauDefi,
   choisirDefiEnFonctionReponsePrecedente,
   corrigerReponse,
   mettreAJourScore,
   retirerDefiDesDefisDisponibles
-} from "./actions"
+} from "../../actions"
 import { connect } from "react-redux"
 import React from "react"
 import { NavLink } from "react-router-dom"
@@ -25,7 +25,7 @@ class JeuParolesDeDoggy extends React.Component{
         {this.props.intitule && <IntituleDefi intitule={this.props.intitule}/>}
         {this.props.intitule && <FormulaireReponse reponseSoumise={this.props.passerAEtapeSuivante}/>}
         {this.props.reponseDonnee && <MessageCorrection aDonneBonneReponse={this.props.aDonneBonneReponse}/>}
-        {this.props.aDonneMauvaiseReponse && <NavLink to={"/paroles-de-doggy-redux/resultats"}>Voir les résultats</NavLink>}
+        {this.props.aDonneMauvaiseReponse && <NavLink to={"/paroles-de-doggy/resultats"}>Voir les résultats</NavLink>}
       </div>
     )
   }

@@ -2,11 +2,10 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./css/index.css"
 import App from "./App"
-import ParolesDeDoggy from "./ParolesDeDoggy"
-import ParolesDeDoggyReduxAccueil from "./ParolesDeDoggyRedux"
-import ParolesDeDoggyReduxChoixJoueur from "./ParolesDeDoggyRedux/choixJoueur"
-import ParolesDeDoggyReduxDefi from "./ParolesDeDoggyRedux/defi"
-import ParolesDeDoggyReduxResultats from "./ParolesDeDoggyRedux/resultats"
+import ParolesDeDoggyReduxAccueil from "./ParolesDeDoggyRedux/pages/accueil"
+import ParolesDeDoggyReduxChoixJoueur from "./ParolesDeDoggyRedux/pages/choixJoueur"
+import ParolesDeDoggyReduxQuestionnaire from "./ParolesDeDoggyRedux/pages/questionnaire"
+import ParolesDeDoggyReduxResultats from "./ParolesDeDoggyRedux/pages/resultats"
 import * as serviceWorker from "./serviceWorker"
 
 import { BrowserRouter, Route } from "react-router-dom"
@@ -20,12 +19,11 @@ const parolesDeDoggyStore = createStore(parolesDeDoggyReducer)
 ReactDOM.render(
   <BrowserRouter>
     <Route exact path="/" component={App}/>
-    <Route exact path="/paroles-de-doggy" component={ParolesDeDoggy}/>
     <Provider store={parolesDeDoggyStore}>
-      <Route exact path="/paroles-de-doggy-redux" component={ParolesDeDoggyReduxAccueil}/>
-      <Route exact path="/paroles-de-doggy-redux/choix-joueur" component={ParolesDeDoggyReduxChoixJoueur}/>
-      <Route exact path="/paroles-de-doggy-redux/defi" component={ParolesDeDoggyReduxDefi}/>
-      <Route exact path="/paroles-de-doggy-redux/resultats" component={ParolesDeDoggyReduxResultats}/>
+      <Route exact path="/paroles-de-doggy" component={ParolesDeDoggyReduxAccueil}/>
+      <Route exact path="/paroles-de-doggy/choix-joueur" component={ParolesDeDoggyReduxChoixJoueur}/>
+      <Route exact path="/paroles-de-doggy/questionnaire" component={ParolesDeDoggyReduxQuestionnaire}/>
+      <Route exact path="/paroles-de-doggy/resultats" component={ParolesDeDoggyReduxResultats}/>
     </Provider>
   </BrowserRouter>,
 document.getElementById("root")

@@ -1,9 +1,9 @@
 import React from "react"
 import { connect } from "react-redux"
-import { choisirJoueur } from "./actions"
+import { choisirJoueur } from "../../actions"
 import { NavLink } from "react-router-dom"
 
-const choixJoueur = ({ joueursDisponibles, joueur, choisirJoueur }) => {
+const index = ({ joueursDisponibles, joueur, choisirJoueur }) => {
   return (
   <div>
     <h1>Choisis ton joueur !</h1>
@@ -17,7 +17,7 @@ const choixJoueur = ({ joueursDisponibles, joueur, choisirJoueur }) => {
         </div>
       )
     })}
-    {joueur && <NavLink to={"/paroles-de-doggy-redux/defi"}>C'est parti !</NavLink>}
+    {joueur && <NavLink to={"/paroles-de-doggy/defi"}>C'est parti !</NavLink>}
   </div>
 )}
 
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(choixJoueur)
+)(index)
