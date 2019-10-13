@@ -13,7 +13,7 @@ const animations = [
   "shrink-animation",
   "spin-over-y-animation",
   "spin-over-x-animation"
-]
+];
 
 class DoggyLogo extends React.Component {
 
@@ -25,7 +25,7 @@ class DoggyLogo extends React.Component {
         logo.classList.remove(animation);
         animationsPossibles = animationsPossibles.filter(animationPossible => animationPossible !== animation);
       }
-    })
+    });
     logo.classList.add(random(animationsPossibles));
   }
 
