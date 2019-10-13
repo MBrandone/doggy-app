@@ -25,7 +25,7 @@ class JeuParolesDeDoggy extends React.Component{
         {this.props.intitule && <IntituleDefi intitule={this.props.intitule}/>}
         {this.props.intitule && <FormulaireReponse reponseSoumise={this.props.passerAEtapeSuivante}/>}
         {this.props.reponseDonnee && <MessageCorrection aDonneBonneReponse={this.props.aDonneBonneReponse}/>}
-        {this.props.aDonneMauvaiseReponse && <NavLink to={"/paroles-de-doggy/resultats"}>Voir les résultats</NavLink>}
+        {this.props.aDonneMauvaiseReponse && <NavLink to={"/resultats"}>Voir les résultats</NavLink>}
       </div>
     )
   }

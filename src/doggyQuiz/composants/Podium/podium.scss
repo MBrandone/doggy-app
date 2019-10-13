@@ -1,0 +1,27 @@
+.podium {
+  position: relative;
+
+  .photo {
+    max-width: 100px;
+  }
+
+  .premier {
+    position: absolute;
+    left: 45%;
+    top: 5%;
+  }
+
+  .deuxieme {
+    position: absolute;
+    left: 17%;
+    top: 20%;
+  }
+
+  .troisieme {
+    position: absolute;
+    right: 17%;
+    top: 40%;
+  }
+
+}
+

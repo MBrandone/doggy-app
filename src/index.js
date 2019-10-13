@@ -11,13 +11,13 @@ import { BrowserRouter, Route } from "react-router-dom"
 
 import { createStore } from "redux"
 import { Provider } from "react-redux"
-import parolesDeDoggyReducer from "./doggyQuiz/reducers"
+import doggyQuizReducer from "./doggyQuiz/reducers"
 
-const parolesDeDoggyStore = createStore(parolesDeDoggyReducer)
+const doggyQuizStore = createStore(doggyQuizReducer)
 
 ReactDOM.render(
   <BrowserRouter>
-    <Provider store={parolesDeDoggyStore}>
+    <Provider store={doggyQuizStore}>
       <Route exact path="/" component={DoggyQuizAccueil}/>
       <Route exact path="/choix-joueur" component={DoggyQuizChoixJoueur}/>
       <Route exact path="/questionnaire" component={DoggyQuizQuestionnaire}/>

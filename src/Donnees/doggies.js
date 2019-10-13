@@ -3,7 +3,7 @@ export default [
     trigramme: "BRM",
     nom: "Martins",
     prenom: "Bandone",
-    surnom: "Brandazouz, Brondon",
+    surnom: "Brondon",
     photo: "",
     tribu: "WEBF",
     signeParticulier: "rit très fort"
@@ -75,7 +75,7 @@ export default [
     trigramme: "CLI",
     nom: "Liu",
     prenom: "Can",
-    surnom: "",
+    surnom: "Can",
     photo: "",
     tribu: "ARCHI",
     signeParticulier: "sait bien faire vibrer ses fesses"
@@ -83,7 +83,7 @@ export default [
     trigramme: "CEM",
     nom: "Martin",
     prenom: "Cedric",
-    surnom: "",
+    surnom: "Cédric",
     photo: "",
     tribu: "NAD",
     signeParticulier: "maîtrise l'art de maîtriser"
@@ -99,7 +99,7 @@ export default [
     trigramme: "MEG",
     nom: "Menanteau",
     prenom: "Mégane",
-    surnom: "MEG",
+    surnom: "Meg",
     photo: "",
     tribu: "WEBF",
     signeParticulier: "te regarde mal"
@@ -115,7 +115,7 @@ export default [
     trigramme: "LJA",
     nom: "Jacquemin",
     prenom: "Leo",
-    surnom: "",
+    surnom: "Léo",
     photo: "",
     tribu: "WEBF",
     signeParticulier: ""
@@ -123,15 +123,15 @@ export default [
     trigramme: "MID",
     nom: "Durdevic",
     prenom: "Mila",
-    surnom: "",
+    surnom: "Mila",
     photo: "",
     tribu: "CRAFT",
     signeParticulier: "Prend une grande caisse par an"
   },{
     trigramme: "SLU",
     nom: "Lundy",
-    prenom: "Stephane",
-    surnom: "",
+    prenom: "Stéphane",
+    surnom: "Le Mondai",
     photo: "",
     tribu: "Autres",
     signeParticulier: "Maîtrise le feu"
@@ -139,7 +139,7 @@ export default [
     trigramme: "RBO",
     nom: "Botter",
     prenom: "Rafaëlle",
-    surnom: "",
+    surnom: "La Botter",
     photo: "",
     tribu: "Autres",
     signeParticulier: ""

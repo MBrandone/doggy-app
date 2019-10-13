@@ -1,17 +1,17 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 import "./accueil.scss"
+import LogoDoggyQuizAvecFruits from "../../composants/LogoDoggyQuizAvecFruits"
 
 export default () => (
   <div className="accueil">
+
     <div className="logo">
-      <img src="/images/logo-doggy-quiz.svg" alt="Le logo du doggy quiz" className="doggy-quiz"/>
-      <img src="/images/aubergine.svg" alt="une aubergine" className="aubergine"/>
-      <img src="/images/peche.svg" alt="une peche" className="peche"/>
+      <LogoDoggyQuizAvecFruits/>
     </div>
 
     <div className="tema-wesh">
-      <NavLink to={"/paroles-de-doggy/choix-joueur"}>
+      <NavLink to={"/choix-joueur"}>
         <div className="texte-lien">TÉMA WESH !</div>
       </NavLink>
     </div>
@@ -22,5 +22,6 @@ export default () => (
         <img src="/images/logo-doggy-skool.svg" alt="Le logo de la Doggy Skool"/>
       </div>
     </div>
+
   </div>
 )

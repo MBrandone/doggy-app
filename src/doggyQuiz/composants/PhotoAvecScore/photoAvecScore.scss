@@ -1,0 +1,18 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.photo-avec-score {
+
+  .photo {
+    background: white;
+    border-radius: 999px;
+    border: 1px solid white;
+  }
+
+  .score {
+    background: $mangue;
+    color: $blanc;
+    font-family: $anton;
+    text-align: center;
+  }
+}
