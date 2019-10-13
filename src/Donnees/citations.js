@@ -251,6 +251,10 @@ export default [
     auteurs: ["SLU"],
     citation: "Qui est dispo pour un déménagement, j'offre les bières."
   },
+  {
+    auteurs: ["SLU"],
+    citation: "Hey, réveillez-vous, le rugby commence dans 20 minutes."
+  },
   //LEO
   {
     auteurs: ["LJA"],
