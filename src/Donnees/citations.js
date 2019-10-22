@@ -82,6 +82,12 @@ export default [
   {
     auteurs: ["BEJ", "CYG"],
     citation: "Molo, on a dit !"
+  },{
+    auteurs: ["BEJ"],
+    citation: "J'ai envie de tout casser."
+  },{
+    auteurs: ["BEJ"],
+    citation: "Allez ! Ciao les cons !"
   },
   //BRM
   {
@@ -108,6 +114,9 @@ export default [
   },{
     auteurs: ["BRM", "CYG"],
     citation: "Olive !"
+  },{
+    auteurs: ["BRM", "CYG"],
+    citation: "Ce soir, j'ai Switch"
   },{
     auteurs: ["BRM, BEJ"],
     citation: "On est quel jooooouuuuuur ?!"
@@ -200,6 +209,9 @@ export default [
   },{
     auteurs: ["MBI"],
     citation: "J'ai des horaires de sortie, je ne suis pas une femme libre."
+  },{
+    auteurs: ["MBI", "RDO"],
+    citation: "La loi des deux R : un ricard et une rose, ça rend une femme heureuse."
   },
   //JUJU
   {
@@ -211,6 +223,9 @@ export default [
   },{
     auteurs: ["JDO"],
     citation: "On a pas 95 ans ..."
+  },{
+    auteurs: ["JDO"],
+    citation: "Vas-y fonce !"
   },
   //FAM
   {
@@ -241,6 +256,9 @@ export default [
   {
     auteurs: ["CEM"],
     citation: "Manager, c'est pas mettre des doigts."
+  },{
+    auteurs: ["CEM"],
+    citation: "Ouais, ça te fait marrer toi."
   },
   //SLU
   {

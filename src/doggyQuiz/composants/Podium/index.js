@@ -16,18 +16,20 @@ class Podium extends React.Component {
 
   render() {
     return (
-      <div className="podium" id="podium">
-        <div className="photo premier">
+      <div className="podium">
+        <div className="premier">
           <PhotoAvecScore/>
         </div>
 
-        <div className="photo deuxieme">
+        <div className="deuxieme">
           <PhotoAvecScore/>
         </div>
 
-        <div className="photo troisieme">
+        <div className="troisieme">
           <PhotoAvecScore/>
         </div>
+
+        <div className="animation" id="podium"></div>
       </div>
     )
   }

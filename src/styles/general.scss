@@ -4,9 +4,14 @@ body {
   background-color: $bleu;
   background-image: url("/images/fond-ecran.svg");
   background-size: cover;
+  margin: 0;
 }
 
 a,a:link,a:visited,a:hover,a:focus,a:active{
   color: inherit;
   text-decoration: none;
+}
+
+p, blockquote {
+  margin: 0;
 }

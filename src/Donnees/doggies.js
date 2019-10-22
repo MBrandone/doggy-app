@@ -59,7 +59,7 @@ export default [
     trigramme: "BME",
     nom: "Meriaux",
     prenom: "Benoit",
-    surnom: "BMEtte",
+    surnom: "Renoit",
     photo: "",
     tribu: "NAD",
     signeParticulier: "court très vite"
@@ -118,7 +118,7 @@ export default [
     surnom: "Léo",
     photo: "",
     tribu: "WEBF",
-    signeParticulier: ""
+    signeParticulier: "fait des dry january indéfiniment"
   },{
     trigramme: "MID",
     nom: "Durdevic",

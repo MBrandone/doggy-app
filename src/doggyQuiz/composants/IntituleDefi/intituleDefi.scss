@@ -1,0 +1,19 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.consigne {
+  font-family: $anton;
+  font-size: 12px;
+  letter-spacing: 0.98px;
+  text-align: center;
+  color: $gris;
+  margin-bottom: 20px;
+}
+
+.citation {
+  font-family: $anton;
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 1.95px;
+  text-align: center;
+}

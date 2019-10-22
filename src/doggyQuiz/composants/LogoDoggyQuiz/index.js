@@ -1,9 +1,8 @@
 import React from "react"
+import "./logoDoggyQuiz.scss"
 
 const LogoDoggyQuiz = _ => (
-  <div>
-    <img src="/images/logo-doggy-quiz.svg" alt="Le logo du doggy quiz" className="doggy-quiz"/>
-  </div>
+  <img src="/images/logo-doggy-quiz.svg" alt="Le logo du doggy quiz" className="logo-doggy-quiz"/>
 )
 
 export default LogoDoggyQuiz

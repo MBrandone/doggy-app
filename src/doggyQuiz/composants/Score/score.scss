@@ -1,0 +1,14 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.score {
+  background-color: $mangue;
+  width: 100%;
+  height: 100%;
+  font-family: $anton;
+  font-size: 18px;
+  letter-spacing: 1.46px;
+  text-align: center;
+  color: $blanc;
+  border-radius: 999px;
+}

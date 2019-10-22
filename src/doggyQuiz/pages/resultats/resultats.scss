@@ -1,0 +1,83 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.resultats {
+  margin: auto;
+  padding-top: 10px;
+  max-width: 600px;
+
+  .conteneur-logo {
+    margin: auto;
+    max-width: 56px;
+    margin-bottom: 73px;
+  }
+
+  .ecran-fin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $blanc;
+    margin: auto;
+
+    .conteneur-photo-bulle {
+      width: 80px;
+      height: 80px;
+      margin-top: -40px;
+    }
+
+    .texte {
+      text-align: center;
+
+      .texte-decu {
+        font-family: $anton;
+        font-size: 12px;
+        letter-spacing: 0.98px;
+        color: $gris;
+      }
+
+      .texte-perdu {
+        font-family: $anton;
+        font-size: 24px;
+        letter-spacing: 1.95px;
+      }
+    }
+
+    .classement {
+      width: 100%;
+      font-family: $arial-rounded;
+
+      .item-classement {
+        display: flex;
+        flex-direction: row;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 24px;
+        justify-content: space-between;
+        margin: 8px 0;
+
+        .identite {
+          display: flex;
+          flex-direction: row;
+
+          .position {
+            margin-right: 18px;
+          }
+
+          .conteneur-classement-photo-bulle {
+            width: 34px;
+            height: 34px;
+            margin-right: 18px;
+          }
+        }
+
+
+        .conteneur-score {
+          width: 56px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
+

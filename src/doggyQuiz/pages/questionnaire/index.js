@@ -1,31 +1,46 @@
 import Score from "../../composants/Score"
 import IntituleDefi from "../../composants/IntituleDefi"
+import LogoDoggySkool from "../../composants/LogoDoggySkool"
 import FormulaireReponse from "../../conteneurs/FormulaireReponse"
-import MessageCorrection from "../../composants/MessageCorrection"
 import {
-  choisirNouveauDefi,
   choisirDefiEnFonctionReponsePrecedente,
+  choisirNouveauDefi,
   corrigerReponse,
   mettreAJourScore,
   retirerDefiDesDefisDisponibles
 } from "../../actions"
 import { connect } from "react-redux"
 import React from "react"
-import { NavLink } from "react-router-dom"
+import "./questionnaire.scss"
 
-class JeuParolesDeDoggy extends React.Component{
+class JeuParolesDeDoggy extends React.Component {
   componentDidMount() {
     this.props.choisirNouveauDefi()
   }
 
-  render(){
+  render() {
     return (
-      <div>
-        <Score score={this.props.score}/>
-        {this.props.intitule && <IntituleDefi intitule={this.props.intitule}/>}
-        {this.props.intitule && <FormulaireReponse reponseSoumise={this.props.passerAEtapeSuivante}/>}
-        {this.props.reponseDonnee && <MessageCorrection aDonneBonneReponse={this.props.aDonneBonneReponse}/>}
-        {this.props.aDonneMauvaiseReponse && <NavLink to={"/resultats"}>Voir les résultats</NavLink>}
+      <div className="questionnaire">
+        <div className="fiche-question">
+
+          <div className="score">
+            <Score score={this.props.score}/>
+          </div>
+
+          <div className="intitule-defi">
+            {this.props.intitule && <IntituleDefi intitule={this.props.intitule}/>}
+          </div>
+
+          <div className="formulaire-reponse">
+            {this.props.intitule && <FormulaireReponse reponseSoumise={this.props.passerAEtapeSuivante}/>}
+          </div>
+
+        </div>
+        <div className="premier-debordement"></div>
+        <div className="deuxieme-debordement"></div>
+
+        <LogoDoggySkool/>
+
       </div>
     )
   }

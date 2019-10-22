@@ -28,7 +28,7 @@ function melanger(tableau) {
 const stateInitial = {
   joueursDisponibles: doggies,
   citationsDisponibles: citations,
-  joueur: null,
+  joueur: "",
   question: {
     intitule: "",
     propositions: [],
