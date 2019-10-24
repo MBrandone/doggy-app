@@ -3,11 +3,11 @@ import { connect } from "react-redux"
 import { choisirJoueur } from "../../actions"
 import LogoDoggyQuiz from "../../composants/LogoDoggyQuiz"
 import Podium from "../../composants/Podium"
-import PhotoBulle from "../../composants/PhotoBulle"
-import BoutonNavigation from "../../composants/BoutonNavigation"
+import BoutonNavigationBleu from "../../composants/BoutonNavigationBleu"
+import ListeJoueursSelectionnables from "../../composants/ListeJoueursSelectionnables"
 import "./choix-joueur.scss"
 
-const index = ({ joueursDisponibles, trigrammeJoueur, choisirJoueur }) => {
+const index = ({ joueursDisponibles, joueur, choisirJoueur }) => {
   return (
     <div className="choix-joueur">
 
@@ -21,28 +21,13 @@ const index = ({ joueursDisponibles, trigrammeJoueur, choisirJoueur }) => {
 
       <div className="selection">
         <h2 className="titre">T'es qui ?</h2>
-        <div className="liste-joueurs">
-          {joueursDisponibles.map(joueur => {
-            return (
-              <div key={joueur.trigramme} >
-                <label htmlFor={joueur.trigramme} onClick={choisirJoueur}>
-                  <div className="identite">
-                    <div className="conteneur-photo-bulle">
-                      <PhotoBulle/>
-                    </div>
-                    <p className="surnom">{joueur.surnom}</p>
-                  </div>
-                  <div className="radio">
-                    <input type="radio" name="joueur" value={joueur.trigramme} readOnly checked={trigrammeJoueur === joueur.trigramme}/>
-                    <span className="radio-custom"></span>
-                  </div>
-                </label>
-              </div>
-            )
-          })}
-          {trigrammeJoueur && <BoutonNavigation lienNavigation="/questionnaire"/>}
-
+        <ListeJoueursSelectionnables evenementNouveauJoueurChoisi={choisirJoueur}
+                                     joueursSelectionnables={joueursDisponibles} joueurSelectionne={joueur}/>
+        { joueur &&
+        <div className="conteneur-bouton-navigation">
+          <BoutonNavigationBleu lienNavigation="/questionnaire" texte="C'EST PARTI !"/>
         </div>
+        }
       </div>
 
     </div>
@@ -51,7 +36,7 @@ const index = ({ joueursDisponibles, trigrammeJoueur, choisirJoueur }) => {
 
 const mapStateToProps = state => ({
   joueursDisponibles: state.joueursDisponibles,
-  trigrammeJoueur: state.joueur
+  joueur: state.joueur
 })
 
 const mapDispatchToProps = dispatch => ({

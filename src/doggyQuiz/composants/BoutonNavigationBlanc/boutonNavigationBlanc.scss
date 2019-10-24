@@ -1,0 +1,21 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.bouton-navigation-blanc {
+  width: 192px;
+  height: 48px;
+  background-color: $blanc;
+  margin: auto;
+  border-radius: 999px;
+  box-shadow: 0 4px 2px #D6D6D6;
+
+  .texte {
+    font-family: $arial-rounded;
+    color: $noir;
+    min-width: 192px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    letter-spacing: 1.14px;
+  }
+}

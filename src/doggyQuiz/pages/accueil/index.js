@@ -2,6 +2,7 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import "./accueil.scss"
 import LogoDoggyQuizAvecFruits from "../../composants/LogoDoggyQuizAvecFruits"
+import LogoDoggySkool from "../../composants/LogoDoggySkool"
 
 export default () => (
   <div className="accueil">
@@ -19,7 +20,7 @@ export default () => (
     <div className="sponsor">
       <p>Sponsorisé par</p>
       <div>
-        <img src="/images/logo-doggy-skool.svg" alt="Le logo de la Doggy Skool"/>
+        <LogoDoggySkool/>
       </div>
     </div>
 

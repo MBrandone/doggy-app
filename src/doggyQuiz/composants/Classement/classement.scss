@@ -1,0 +1,47 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.classement {
+  width: 100%;
+  font-family: $arial-rounded;
+
+  .item-classement {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+
+    .identite {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .position {
+        margin-right: 18px;
+      }
+
+      .conteneur-classement-photo-bulle {
+        width: 34px;
+        height: 34px;
+        margin-right: 18px;
+      }
+    }
+
+    .conteneur-score {
+      width: 56px;
+      height: 24px;
+      line-height: 24px;
+      background-color: $mangue;
+      font-family: $anton;
+      border-radius: 999px;
+      color: $blanc;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.68px;
+    }
+  }
+}

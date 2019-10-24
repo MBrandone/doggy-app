@@ -1,3 +1,4 @@
+import React from "react"
 import Score from "../../composants/Score"
 import IntituleDefi from "../../composants/IntituleDefi"
 import LogoDoggySkool from "../../composants/LogoDoggySkool"
@@ -10,7 +11,6 @@ import {
   retirerDefiDesDefisDisponibles
 } from "../../actions"
 import { connect } from "react-redux"
-import React from "react"
 import "./questionnaire.scss"
 
 class JeuParolesDeDoggy extends React.Component {
@@ -51,8 +51,6 @@ const mapStateToProps = state => ({
   intitule: state.question.intitule,
   correction: state.correction,
   reponseDonnee: state.correction !== null,
-  aDonneBonneReponse: state.correction === true,
-  aDonneMauvaiseReponse: state.correction === false
 })
 
 const mapDispatchToProps = dispatch => ({

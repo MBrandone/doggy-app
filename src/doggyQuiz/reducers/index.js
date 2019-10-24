@@ -42,10 +42,11 @@ const stateInitial = {
 const etat = (state = stateInitial, action) => {
   switch (action.type) {
     case 'CHOISIR_JOUEUR':
-      const joueur = action.joueur
+      const trigrammeJoueurSelectionne = action.joueur
+      const joueurSelectionne = state.joueursDisponibles.find(joueur => joueur.trigramme === trigrammeJoueurSelectionne)
       return {
         ...state,
-        joueur
+        joueur: joueurSelectionne
       }
     case 'CHOISIR_NOUVEAU_DEFI':
       const defi = random(state.citationsDisponibles)
