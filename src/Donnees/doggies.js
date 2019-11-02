@@ -7,7 +7,8 @@ export default [
     photo: "",
     tribu: "WEBF",
     signeParticulier: "rit très fort"
-  },{
+  },
+  {
     trigramme: "MBI",
     nom: "Biardeau",
     prenom: "Marie",
@@ -15,7 +16,8 @@ export default [
     photo: "",
     tribu: "OCAC",
     signeParticulier: "boit des shots"
-  },{
+  },
+  {
     trigramme: "RDO",
     nom: "Dormoy",
     prenom: "Remi",
@@ -23,7 +25,8 @@ export default [
     photo: "",
     tribu: "MOB",
     signeParticulier: "boit du Ricard"
-  },{
+  },
+  {
     trigramme: "BEJ",
     nom: "Jarlier",
     prenom: "Benoit",
@@ -31,7 +34,8 @@ export default [
     photo: "",
     tribu: "NAD",
     signeParticulier: "boit beaucoup"
-  },{
+  },
+  {
     trigramme: "LAAL",
     nom: "Lambert",
     prenom: "Alizée",
@@ -39,7 +43,8 @@ export default [
     photo: "",
     tribu: "UX",
     signeParticulier: "voit le bon côté des choses"
-  },{
+  },
+  {
     trigramme: "DAS",
     nom: "Sala",
     prenom: "Daniel",
@@ -47,7 +52,8 @@ export default [
     photo: "",
     tribu: "",
     signeParticulier: "danse exceptionnellement bien"
-  },{
+  },
+  {
     trigramme: "JDO",
     nom: "Dompe",
     prenom: "Juliette",
@@ -55,7 +61,8 @@ export default [
     photo: "",
     tribu: "ARCHI",
     signeParticulier: "fait des cocktails"
-  },{
+  },
+  {
     trigramme: "BME",
     nom: "Meriaux",
     prenom: "Benoit",
@@ -63,7 +70,8 @@ export default [
     photo: "",
     tribu: "NAD",
     signeParticulier: "court très vite"
-  },{
+  },
+  {
     trigramme: "FAM",
     nom: "Massin",
     prenom: "Faustine",
@@ -71,7 +79,8 @@ export default [
     photo: "",
     tribu: "NAD",
     signeParticulier: "parle beaucoup de sexe"
-  },{
+  },
+  {
     trigramme: "CLI",
     nom: "Liu",
     prenom: "Can",
@@ -79,7 +88,8 @@ export default [
     photo: "",
     tribu: "ARCHI",
     signeParticulier: "sait bien faire vibrer ses fesses"
-  },{
+  },
+  {
     trigramme: "CEM",
     nom: "Martin",
     prenom: "Cedric",
@@ -87,7 +97,8 @@ export default [
     photo: "",
     tribu: "NAD",
     signeParticulier: "maîtrise l'art de maîtriser"
-  },{
+  },
+  {
     trigramme: "CYG",
     nom: "Guegan",
     prenom: "Cyril",
@@ -95,7 +106,8 @@ export default [
     photo: "",
     tribu: "ARCHI",
     signeParticulier: "Met des grandes claques dans le dos"
-  },{
+  },
+  {
     trigramme: "MEG",
     nom: "Menanteau",
     prenom: "Mégane",
@@ -103,7 +115,8 @@ export default [
     photo: "",
     tribu: "WEBF",
     signeParticulier: "te regarde mal"
-  },{
+  },
+  {
     trigramme: "JORO",
     nom: "Robert",
     prenom: "Joseph",
@@ -111,7 +124,8 @@ export default [
     photo: "",
     tribu: "ARCHI",
     signeParticulier: "Court très vite"
-  },{
+  },
+  {
     trigramme: "LJA",
     nom: "Jacquemin",
     prenom: "Leo",
@@ -119,7 +133,8 @@ export default [
     photo: "",
     tribu: "WEBF",
     signeParticulier: "fait des dry january indéfiniment"
-  },{
+  },
+  {
     trigramme: "MID",
     nom: "Durdevic",
     prenom: "Mila",
@@ -127,7 +142,8 @@ export default [
     photo: "",
     tribu: "CRAFT",
     signeParticulier: "Prend une grande caisse par an"
-  },{
+  },
+  {
     trigramme: "SLU",
     nom: "Lundy",
     prenom: "Stéphane",
@@ -135,7 +151,8 @@ export default [
     photo: "",
     tribu: "Autres",
     signeParticulier: "Maîtrise le feu"
-  },{
+  },
+  {
     trigramme: "RBO",
     nom: "Botter",
     prenom: "Rafaëlle",

@@ -1,17 +1,17 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./styles/general.scss"
-import DoggyQuizAccueil from "./doggyQuiz/pages/accueil"
-import DoggyQuizChoixJoueur from "./doggyQuiz/pages/choixJoueur"
-import DoggyQuizQuestionnaire from "./doggyQuiz/pages/questionnaire"
-import DoggyQuizResultats from "./doggyQuiz/pages/resultats"
+import DoggyQuizAccueil from "./DoggyQuiz/pages/accueil"
+import DoggyQuizChoixJoueur from "./DoggyQuiz/pages/choixJoueur"
+import DoggyQuizQuestionnaire from "./DoggyQuiz/pages/questionnaire"
+import DoggyQuizResultats from "./DoggyQuiz/pages/resultats"
 import * as serviceWorker from "./serviceWorker"
 
 import { BrowserRouter, Route } from "react-router-dom"
 
 import { createStore } from "redux"
 import { Provider } from "react-redux"
-import doggyQuizReducer from "./doggyQuiz/reducers"
+import doggyQuizReducer from "./DoggyQuiz/reducers"
 
 const doggyQuizStore = createStore(doggyQuizReducer)
 

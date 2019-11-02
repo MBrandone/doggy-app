@@ -28,3 +28,7 @@ export const retirerDefiDesDefisDisponibles = citation => ({
   type: "RETIRER_DEFI_DES_DEFIS_DISPONIBLES",
   citation
 })
+
+export const commencerPartie = _ => ({
+  type: "COMMENCER_PARTIE"
+})

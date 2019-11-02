@@ -17,10 +17,11 @@ const Index = () => (
       <div className="conteneur-photo-bulle">
         <PhotoBulle/>
       </div>
-      <p className="texte">
+
+      <div className="texte">
         <p className="texte-decu">La vérité tu m'as déçu !</p>
         <p className="texte-perdu">C'est perdu !</p>
-      </p>
+      </div>
       <Classement/>
     </div>
 
@@ -31,7 +32,7 @@ const Index = () => (
 )
 
 const mapStateToProps = state => ({
-  score: state.score.toString(),
+  score: state.partie.score.toString(),
   solutions: state.question.solutions
 })
 

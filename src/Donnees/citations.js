@@ -88,6 +88,9 @@ export default [
   },{
     auteurs: ["BEJ"],
     citation: "Allez ! Ciao les cons !"
+  },{
+    auteurs: ["BEJ", "BME"],
+    citation: "Et puis une enquête ça fera pas de mal non plus ! Qu'on nettoie un peu OCTO !"
   },
   //BRM
   {
@@ -118,7 +121,7 @@ export default [
     auteurs: ["BRM", "CYG"],
     citation: "Ce soir, j'ai Switch"
   },{
-    auteurs: ["BRM, BEJ"],
+    auteurs: ["BRM", "BEJ"],
     citation: "On est quel jooooouuuuuur ?!"
   },
   //DAS
@@ -277,6 +280,10 @@ export default [
   {
     auteurs: ["LJA"],
     citation: "Ils se sont toujours pas pécho ou quoi ? Je sens ce genre de truc ..."
+  },
+  {
+    auteurs: ["LJA"],
+    citation: "Nan je bois pas ce soir, je fais mon dry january !"
   },
   //CAN
   {

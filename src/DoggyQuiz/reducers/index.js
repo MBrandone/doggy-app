@@ -28,25 +28,40 @@ function melanger(tableau) {
 const stateInitial = {
   joueursDisponibles: doggies,
   citationsDisponibles: citations,
-  joueur: "",
+  partie: {
+    joueur: null,
+    score: 0,
+    correction: null
+  },
   question: {
     intitule: "",
     propositions: [],
     solutions: []
   },
   reponse: null,
-  correction: null,
-  score: 0
 }
 
 const etat = (state = stateInitial, action) => {
   switch (action.type) {
+    case 'COMMENCER_PARTIE':
+      const nouvellePartie = {
+        joueur: null,
+        score: 0,
+        correction: null
+      }
+      return {
+        ...state,
+        partie: nouvellePartie
+      }
     case 'CHOISIR_JOUEUR':
       const trigrammeJoueurSelectionne = action.joueur
       const joueurSelectionne = state.joueursDisponibles.find(joueur => joueur.trigramme === trigrammeJoueurSelectionne)
       return {
         ...state,
-        joueur: joueurSelectionne
+        partie: {
+          ...state.partie,
+          joueur: joueurSelectionne
+        }
       }
     case 'CHOISIR_NOUVEAU_DEFI':
       const defi = random(state.citationsDisponibles)
@@ -59,20 +74,16 @@ const etat = (state = stateInitial, action) => {
       return {
         ...state,
         question,
-        defi,
-        reponsesPossibles: propositions
       }
     case 'CHOISIR_DEFI_EN_FONCTION_REPONSE_PRECEDENTE':
       let nouveauDefi
       let nouvellesPropositions
-      let solution = null
-      if (state.correction){
+      if (state.partie.correction){
         nouveauDefi = random(state.citationsDisponibles)
         nouvellesPropositions = DeterminerQuatrePropositions(nouveauDefi, trigrammes(state.joueursDisponibles))
       } else {
         nouveauDefi = { citation: ""}
         nouvellesPropositions = null
-        solution = state.defi.auteurs
       }
       const nouvelleQuestion = {
         intitule: nouveauDefi.citation,
@@ -82,10 +93,7 @@ const etat = (state = stateInitial, action) => {
       return {
         ...state,
         question: nouvelleQuestion,
-        defi: nouveauDefi,
-        reponsesPossibles: nouvellesPropositions,
         reponse: null,
-        solution
       }
     case 'SAUVEGARDER_REPONSE':
       return {
@@ -96,13 +104,19 @@ const etat = (state = stateInitial, action) => {
       const correction = state.question.solutions.includes(state.reponse)
       return {
         ...state,
-        correction
+        partie: {
+          ...state.partie,
+          correction
+        }
       }
     case 'METTRE_A_JOUR_SCORE':
-      const nouveauScore = state.correction ? state.score + 1 : state.score
+      const nouveauScore = state.partie.correction ? state.partie.score + 1 : state.partie.score
       return {
         ...state,
-        score: nouveauScore
+        partie: {
+          ...state.partie,
+          score: nouveauScore
+        }
       }
     case 'RETIRER_DEFI_DES_DEFIS_DISPONIBLES':
       const citationCourante = state.question.intitule

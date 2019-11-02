@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { choisirJoueur } from "../../actions"
+import { commencerPartie, choisirJoueur } from "../../actions"
 import LogoDoggyQuiz from "../../composants/LogoDoggyQuiz"
 import Podium from "../../composants/Podium"
 import BoutonNavigationBleu from "../../composants/BoutonNavigationBleu"
@@ -36,12 +36,13 @@ const index = ({ joueursDisponibles, joueur, choisirJoueur }) => {
 
 const mapStateToProps = state => ({
   joueursDisponibles: state.joueursDisponibles,
-  joueur: state.joueur
+  joueur: state.partie.joueur
 })
 
 const mapDispatchToProps = dispatch => ({
   choisirJoueur: evenement => {
     const joueur = evenement.currentTarget.htmlFor
+    dispatch(commencerPartie())
     dispatch(choisirJoueur(joueur))
   }
 })

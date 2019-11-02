@@ -12,13 +12,25 @@ import {
 } from "../../actions"
 import { connect } from "react-redux"
 import "./questionnaire.scss"
+import { Redirect } from "react-router-dom"
+
 
 class JeuParolesDeDoggy extends React.Component {
-  componentDidMount() {
-    this.props.choisirNouveauDefi()
+  async componentDidMount() {
+    await this.props.choisirNouveauDefi()
+  }
+
+  async reponseSoumise() {
+    await this.props.corrigerReponse()
+    if (this.props.correction) {
+      this.props.passerAEtapeSuivante()
+    }
   }
 
   render() {
+    if (this.props.correction === false) {
+      return (<Redirect push to="/resultats"/>)
+    }
     return (
       <div className="questionnaire">
         <div className="fiche-question">
@@ -32,7 +44,7 @@ class JeuParolesDeDoggy extends React.Component {
           </div>
 
           <div className="formulaire-reponse">
-            {this.props.intitule && <FormulaireReponse reponseSoumise={this.props.passerAEtapeSuivante}/>}
+            {this.props.intitule && <FormulaireReponse reponseSoumise={this.reponseSoumise.bind(this)}/>}
           </div>
 
         </div>
@@ -47,18 +59,19 @@ class JeuParolesDeDoggy extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  score: state.score,
+  score: state.partie.score,
   intitule: state.question.intitule,
-  correction: state.correction,
-  reponseDonnee: state.correction !== null,
+  correction: state.partie.correction
 })
 
 const mapDispatchToProps = dispatch => ({
   choisirNouveauDefi: _ => {
     dispatch(choisirNouveauDefi())
   },
-  passerAEtapeSuivante: _ => {
+  corrigerReponse: _ => {
     dispatch(corrigerReponse())
+  },
+  passerAEtapeSuivante: _ => {
     dispatch(mettreAJourScore())
     dispatch(retirerDefiDesDefisDisponibles())
     dispatch(choisirDefiEnFonctionReponsePrecedente())

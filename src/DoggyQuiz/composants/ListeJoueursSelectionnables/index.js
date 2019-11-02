@@ -37,9 +37,9 @@ const index = ({ joueursSelectionnables, joueurSelectionne, evenementNouveauJoue
 }
 
 index.propTypes = {
-  joueurSelectionne: PropTypes.object.isRequired,
+  joueurSelectionne: PropTypes.object,
   joueursSelectionnables: PropTypes.array.isRequired,
-  joueurChoisi: PropTypes.func.isRequired
+  evenementNouveauJoueurChoisi: PropTypes.func.isRequired
 }
 
 export default index
