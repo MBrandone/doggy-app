@@ -16,12 +16,12 @@ export const mettreAJourScore = _ => ({
   type: "METTRE_A_JOUR_SCORE",
 })
 
-export const choisirNouveauDefi = _ => ({
-  type: "CHOISIR_NOUVEAU_DEFI",
+export const choisirPremierDefi = _ => ({
+  type: "CHOISIR_PREMIER_DEFI",
 })
 
-export const choisirDefiEnFonctionReponsePrecedente = _ => ({
-  type: "CHOISIR_DEFI_EN_FONCTION_REPONSE_PRECEDENTE",
+export const choisirDefiSuivant = _ => ({
+  type: "CHOISIR_DEFI_SUIVANT",
 })
 
 export const retirerDefiDesDefisDisponibles = citation => ({

@@ -33,12 +33,11 @@ const FormulaireReponse = ({ reponsesPossibles, sauvegarderReponse, reponseSoumi
 }
 
 const mapStateToProps = state => ({
-  reponsesPossibles: state.question.propositions
+  reponsesPossibles: state.quizz.partie.question.propositions
 })
 
 const mapDispatchToProps = dispatch => ({
   sauvegarderReponse: reponse => {
-    console.log("dans le dispatch")
     dispatch(sauvegarderReponse(reponse))
   }
 })

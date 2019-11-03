@@ -4,8 +4,8 @@ import IntituleDefi from "../../composants/IntituleDefi"
 import LogoDoggySkool from "../../composants/LogoDoggySkool"
 import FormulaireReponse from "../../conteneurs/FormulaireReponse"
 import {
-  choisirDefiEnFonctionReponsePrecedente,
-  choisirNouveauDefi,
+  choisirDefiSuivant,
+  choisirPremierDefi,
   corrigerReponse,
   mettreAJourScore,
   retirerDefiDesDefisDisponibles
@@ -17,7 +17,7 @@ import { Redirect } from "react-router-dom"
 
 class JeuParolesDeDoggy extends React.Component {
   async componentDidMount() {
-    await this.props.choisirNouveauDefi()
+    await this.props.choisirPremierDefi()
   }
 
   async reponseSoumise() {
@@ -59,14 +59,14 @@ class JeuParolesDeDoggy extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  score: state.partie.score,
-  intitule: state.question.intitule,
-  correction: state.partie.correction
+  score: state.quizz.partie.score,
+  intitule: state.quizz.partie.question.intitule,
+  correction: state.quizz.partie.correction
 })
 
 const mapDispatchToProps = dispatch => ({
-  choisirNouveauDefi: _ => {
-    dispatch(choisirNouveauDefi())
+  choisirPremierDefi: _ => {
+    dispatch(choisirPremierDefi())
   },
   corrigerReponse: _ => {
     dispatch(corrigerReponse())
@@ -74,7 +74,7 @@ const mapDispatchToProps = dispatch => ({
   passerAEtapeSuivante: _ => {
     dispatch(mettreAJourScore())
     dispatch(retirerDefiDesDefisDisponibles())
-    dispatch(choisirDefiEnFonctionReponsePrecedente())
+    dispatch(choisirDefiSuivant())
   }
 })
 

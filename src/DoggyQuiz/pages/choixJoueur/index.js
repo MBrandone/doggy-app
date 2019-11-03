@@ -35,8 +35,8 @@ const index = ({ joueursDisponibles, joueur, choisirJoueur }) => {
 }
 
 const mapStateToProps = state => ({
-  joueursDisponibles: state.joueursDisponibles,
-  joueur: state.partie.joueur
+  joueursDisponibles: state.gestionJoueur.joueursDisponibles,
+  joueur: state.gestionJoueur.joueur
 })
 
 const mapDispatchToProps = dispatch => ({
