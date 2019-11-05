@@ -38,8 +38,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Prochains caps
 
-### API (en Kotlin)
-### SASS
 ### Typescript React
 
 ## En savoir plus sur React
