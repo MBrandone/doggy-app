@@ -1,88 +1,71 @@
 import etatInitial from "./etat-initial"
 import { creerReducer } from "./reducer-utils"
 
-//FONCTIONS UTILITAIRES
-
-function random(array) {
-  return array[Math.floor(Math.random() * array.length)]
-}
-
-function melanger(tableau) {
-  return tableau.sort(() => {
-    return .5 - Math.random()
-  })
-}
-
-function prendreValeurDansTableauObjet(champs, tableauObjet) {
-  return tableauObjet.map(objet => objet[champs])
-}
-
-function DeterminerQuatrePropositions(defi, ensemblePropositions) {
-  let ensemblePropositionsSansBonnesReponses = ensemblePropositions.filter(proposition => defi.auteurs.includes(proposition) !== true)
-  const premiereProposition = random(ensemblePropositionsSansBonnesReponses)
-  ensemblePropositionsSansBonnesReponses = ensemblePropositionsSansBonnesReponses.filter(proposition => proposition !== premiereProposition)
-  const deuxiemeProposition = random(ensemblePropositionsSansBonnesReponses)
-  ensemblePropositionsSansBonnesReponses = ensemblePropositionsSansBonnesReponses.filter(proposition => proposition !== deuxiemeProposition)
-  const troisiemeProposition = random(ensemblePropositionsSansBonnesReponses)
-  return melanger([random(defi.auteurs), premiereProposition, deuxiemeProposition, troisiemeProposition])
-}
-
-// REDUCERS
-
 function commencerPartie(etatQuizz) {
-  const nouvellePartie = {
-    score: 0,
-    correction: null,
-    question: {
-      intitule: "",
-      propositions: [],
-      solutions: []
-    },
-    reponse: null
-  }
-  return {
-    ...etatQuizz,
-    partie: nouvellePartie
-  }
-}
-
-function choisirPremierDefi(etatQuizz) {
-  const defi = random(etatQuizz.citationsDisponibles)
-  const propositions = DeterminerQuatrePropositions(defi, prendreValeurDansTableauObjet("trigramme", etatQuizz.reponsesDisponibles))
-  const question = {
-    intitule: defi.citation,
-    propositions,
-    solutions: defi.auteurs
-  }
   return {
     ...etatQuizz,
     partie: {
       ...etatQuizz.partie,
-      question
+      synchronisation: "EN_COURS"
     }
   }
 }
 
-function choisirDefiSuivant(etatQuizz) {
-  let nouveauDefi
-  let nouvellesPropositions
-  if (etatQuizz.partie.correction) {
-    nouveauDefi = random(etatQuizz.citationsDisponibles)
-    nouvellesPropositions = DeterminerQuatrePropositions(nouveauDefi, prendreValeurDansTableauObjet("trigramme", etatQuizz.reponsesDisponibles))
-  } else {
-    nouveauDefi = { citation: "" }
-    nouvellesPropositions = null
+function commencerPartieSucces(etatQuizz, action) {
+  const partie = action.payload.partie
+  partie.synchronisation = "TERMINE"
+  return {
+    ...etatQuizz,
+    partie
   }
-  const nouvelleQuestion = {
-    intitule: nouveauDefi.citation,
-    propositions: nouvellesPropositions,
-    solutions: nouveauDefi.auteurs
+}
+
+function commencerPartieErreur(etatQuizz) {
+  return {
+    ...etatQuizz,
+    partie: {
+      ...etatQuizz,
+      synchronisation: "ERREUR"
+    }
   }
+}
+
+function demanderNouveauDefi(etatQuizz) {
   return {
     ...etatQuizz,
     partie: {
       ...etatQuizz.partie,
-      question: nouvelleQuestion
+      defi: {
+        ...etatQuizz.partie.defi,
+        chargement: "EN_COURS"
+      }
+    },
+    reponse: null
+  }
+}
+
+function demanderNouveauDefiSucces(etatQuizz, action) {
+  const nouveauDefi = action.payload.defiSuivant
+  nouveauDefi.chargement = "TERMINE"
+  return {
+    ...etatQuizz,
+    partie: {
+      ...etatQuizz.partie,
+      defi: nouveauDefi
+    },
+    reponse: null
+  }
+}
+
+function demanderNouveauDefiErreur(etatQuizz) {
+  return {
+    ...etatQuizz,
+    partie: {
+      ...etatQuizz.partie,
+      defi: {
+        ...etatQuizz.partie.defi,
+        chargement: "ERREUR"
+      }
     },
     reponse: null
   }
@@ -93,24 +76,40 @@ function sauvegarderReponse(etatQuizz, action) {
     ...etatQuizz,
     partie: {
       ...etatQuizz.partie,
-      reponse: action.reponse
+      reponse: {
+        ...etatQuizz.partie.reponse,
+        sauvegarde: "EN_COURS"
+      }
     }
   }
 }
 
-function corrigerReponse(etatQuizz) {
-  const correction = etatQuizz.partie.question.solutions.includes(etatQuizz.partie.reponse)
+function sauvegarderReponseSucces(etatQuizz, action) {
+  const reponseCorrigee = action.payload.reponse
   return {
     ...etatQuizz,
     partie: {
       ...etatQuizz.partie,
-      correction
+      reponse: reponseCorrigee
+    }
+  }
+}
+
+function sauvegarderReponseErreur(etatQuizz, action) {
+  return {
+    ...etatQuizz,
+    partie: {
+      ...etatQuizz.partie,
+      reponse: {
+        ...etatQuizz.partie.reponse,
+        sauvegarde: "ERREUR"
+      }
     }
   }
 }
 
 function mettreAJourScore(etatQuizz) {
-  const nouveauScore = etatQuizz.partie.correction ? etatQuizz.partie.score + 1 : etatQuizz.partie.score
+  const nouveauScore = etatQuizz.partie.reponse.correction ? etatQuizz.partie.score + 1 : etatQuizz.partie.score
   return {
     ...etatQuizz,
     partie: {
@@ -120,21 +119,49 @@ function mettreAJourScore(etatQuizz) {
   }
 }
 
-function RetirerDefiDesDefisDisponibles(etatQuizz) {
-  const citationCourante = etatQuizz.partie.question.intitule
-  const citationsDisponibles = etatQuizz.citationsDisponibles.filter(citation => citation.citation !== citationCourante)
+function recupererClassement(etatQuizz) {
   return {
     ...etatQuizz,
-    citationsDisponibles
+    classement: {
+      ...etatQuizz,
+      chargement: "EN_COURS"
+    }
+  }
+}
+
+function recupererClassementSucces(etatQuizz, action) {
+  const classifications = action.payload.classifications
+  return {
+    ...etatQuizz,
+    classement: {
+      classifications,
+      chargement: "TERMINE"
+    }
+  }
+}
+
+function recupererClassementErreur(etatQuizz) {
+  return {
+    ...etatQuizz,
+    classement: {
+      ...etatQuizz,
+      chargement: "ERREUR"
+    }
   }
 }
 
 export default creerReducer(etatInitial.quizz, {
   COMMENCER_PARTIE: commencerPartie,
-  CHOISIR_PREMIER_DEFI: choisirPremierDefi,
-  CHOISIR_DEFI_SUIVANT: choisirDefiSuivant,
+  COMMENCER_PARTIE_SUCCES: commencerPartieSucces,
+  COMMENCER_PARTIE_ERREUR: commencerPartieErreur,
+  DEMANDER_NOUVEAU_DEFI: demanderNouveauDefi,
+  DEMANDER_NOUVEAU_DEFI_SUCCES: demanderNouveauDefiSucces,
+  DEMANDER_NOUVEAU_DEFI_ERREUR: demanderNouveauDefiErreur,
   SAUVEGARDER_REPONSE: sauvegarderReponse,
-  CORRIGER_REPONSE: corrigerReponse,
+  SAUVEGARDER_REPONSE_SUCCES: sauvegarderReponseSucces,
+  SAUVEGARDER_REPONSE_ERREUR: sauvegarderReponseErreur,
   METTRE_A_JOUR_SCORE: mettreAJourScore,
-  RETIRER_DEFI_DES_DEFIS_DISPONIBLES: RetirerDefiDesDefisDisponibles
+  RECUPERER_CLASSEMENT: recupererClassement,
+  RECUPERER_CLASSEMENT_SUCCES: recupererClassementSucces,
+  RECUPERER_CLASSEMENT_ERREUR: recupererClassementErreur,
 })

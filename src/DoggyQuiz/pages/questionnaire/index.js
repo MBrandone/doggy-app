@@ -4,9 +4,8 @@ import IntituleDefi from "../../composants/IntituleDefi"
 import LogoDoggySkool from "../../composants/LogoDoggySkool"
 import FormulaireReponse from "../../conteneurs/FormulaireReponse"
 import {
-  choisirDefiSuivant,
+  demanderNouveauDefi,
   choisirPremierDefi,
-  corrigerReponse,
   mettreAJourScore,
   retirerDefiDesDefisDisponibles
 } from "../../actions"
@@ -17,17 +16,19 @@ import { Redirect } from "react-router-dom"
 
 class JeuParolesDeDoggy extends React.Component {
   async componentDidMount() {
-    await this.props.choisirPremierDefi()
+    await this.props.demanderNouveauDefi()
   }
 
   async reponseSoumise() {
-    await this.props.corrigerReponse()
     if (this.props.correction) {
       this.props.passerAEtapeSuivante()
     }
   }
 
   render() {
+    if (this.props.joueurConnecte === null)
+      return (<Redirect push to="/choix-joueur"/>)
+
     if (this.props.correction === false) {
       return (<Redirect push to="/resultats"/>)
     }
@@ -59,22 +60,23 @@ class JeuParolesDeDoggy extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  joueurConnecte: state.gestionJoueur.joueurConnecte,
   score: state.quizz.partie.score,
-  intitule: state.quizz.partie.question.intitule,
-  correction: state.quizz.partie.correction
+  intitule: state.quizz.partie.defi.intitule,
+  correction: state.quizz.partie.reponse.correction
 })
 
 const mapDispatchToProps = dispatch => ({
   choisirPremierDefi: _ => {
     dispatch(choisirPremierDefi())
   },
-  corrigerReponse: _ => {
-    dispatch(corrigerReponse())
+  demanderNouveauDefi: _ => {
+    dispatch(demanderNouveauDefi())
   },
   passerAEtapeSuivante: _ => {
     dispatch(mettreAJourScore())
     dispatch(retirerDefiDesDefisDisponibles())
-    dispatch(choisirDefiSuivant())
+    dispatch(demanderNouveauDefi())
   }
 })
 

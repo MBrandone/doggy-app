@@ -1,0 +1,12 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.message-information {
+  background-color: $blanc;
+  border-radius: 26px;
+  min-height: 60px;
+  min-width: 300px;
+  font-family: $arial-rounded;
+  text-align: center;
+  line-height: 60px;
+}

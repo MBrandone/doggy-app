@@ -6,7 +6,8 @@ export default [
     surnom: "Brondon",
     photo: "",
     tribu: "WEBF",
-    signeParticulier: "rit très fort"
+    signeParticulier: "rit très fort",
+    dateNaissance: new Date(1993, 8, 14),
   },
   {
     trigramme: "MBI",
@@ -15,7 +16,8 @@ export default [
     surnom: "Marizouz",
     photo: "",
     tribu: "OCAC",
-    signeParticulier: "boit des shots"
+    signeParticulier: "boit des shots",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "RDO",
@@ -24,7 +26,8 @@ export default [
     surnom: "Rémido",
     photo: "",
     tribu: "MOB",
-    signeParticulier: "boit du Ricard"
+    signeParticulier: "boit du Ricard",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "BEJ",
@@ -33,7 +36,8 @@ export default [
     surnom: "Bénoit",
     photo: "",
     tribu: "NAD",
-    signeParticulier: "boit beaucoup"
+    signeParticulier: "boit beaucoup",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "LAAL",
@@ -42,7 +46,8 @@ export default [
     surnom: "Alizouz",
     photo: "",
     tribu: "UX",
-    signeParticulier: "voit le bon côté des choses"
+    signeParticulier: "voit le bon côté des choses",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "DAS",
@@ -51,7 +56,8 @@ export default [
     surnom: "Daniboy",
     photo: "",
     tribu: "",
-    signeParticulier: "danse exceptionnellement bien"
+    signeParticulier: "danse exceptionnellement bien",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "JDO",
@@ -60,7 +66,8 @@ export default [
     surnom: "Juju",
     photo: "",
     tribu: "ARCHI",
-    signeParticulier: "fait des cocktails"
+    signeParticulier: "fait des cocktails",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "BME",
@@ -69,7 +76,8 @@ export default [
     surnom: "Renoit",
     photo: "",
     tribu: "NAD",
-    signeParticulier: "court très vite"
+    signeParticulier: "court très vite",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "FAM",
@@ -78,7 +86,8 @@ export default [
     surnom: "Faustino",
     photo: "",
     tribu: "NAD",
-    signeParticulier: "parle beaucoup de sexe"
+    signeParticulier: "parle beaucoup de sexe",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "CLI",
@@ -87,7 +96,8 @@ export default [
     surnom: "Can",
     photo: "",
     tribu: "ARCHI",
-    signeParticulier: "sait bien faire vibrer ses fesses"
+    signeParticulier: "sait bien faire vibrer ses fesses",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "CEM",
@@ -96,7 +106,8 @@ export default [
     surnom: "Cédric",
     photo: "",
     tribu: "NAD",
-    signeParticulier: "maîtrise l'art de maîtriser"
+    signeParticulier: "maîtrise l'art de maîtriser",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "CYG",
@@ -105,7 +116,8 @@ export default [
     surnom: "Cygounette",
     photo: "",
     tribu: "ARCHI",
-    signeParticulier: "Met des grandes claques dans le dos"
+    signeParticulier: "Met des grandes claques dans le dos",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "MEG",
@@ -114,7 +126,8 @@ export default [
     surnom: "Meg",
     photo: "",
     tribu: "WEBF",
-    signeParticulier: "te regarde mal"
+    signeParticulier: "te regarde mal",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "JORO",
@@ -123,7 +136,8 @@ export default [
     surnom: "JOROOOOO",
     photo: "",
     tribu: "ARCHI",
-    signeParticulier: "Court très vite"
+    signeParticulier: "Court très vite",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "LJA",
@@ -131,8 +145,10 @@ export default [
     prenom: "Leo",
     surnom: "Léo",
     photo: "",
+
     tribu: "WEBF",
-    signeParticulier: "fait des dry january indéfiniment"
+    signeParticulier: "fait des dry january indéfiniment",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "MID",
@@ -141,7 +157,8 @@ export default [
     surnom: "Mila",
     photo: "",
     tribu: "CRAFT",
-    signeParticulier: "Prend une grande caisse par an"
+    signeParticulier: "Prend une grande caisse par an",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "SLU",
@@ -150,7 +167,8 @@ export default [
     surnom: "Le Mondai",
     photo: "",
     tribu: "Autres",
-    signeParticulier: "Maîtrise le feu"
+    signeParticulier: "Maîtrise le feu",
+    dateNaissance: new Date(),
   },
   {
     trigramme: "RBO",
@@ -159,6 +177,7 @@ export default [
     surnom: "La Botter",
     photo: "",
     tribu: "Autres",
-    signeParticulier: ""
+    signeParticulier: "",
+    dateNaissance: new Date(),
   },
 ]

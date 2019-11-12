@@ -33,7 +33,6 @@ const Index = () => (
 
 const mapStateToProps = state => ({
   score: state.quizz.partie.score.toString(),
-  solutions: state.quizz.partie.question.solutions
 })
 
 export default connect(

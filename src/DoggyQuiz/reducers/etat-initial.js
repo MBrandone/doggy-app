@@ -1,23 +1,36 @@
-import doggies from "../../Donnees/doggies"
-import citations from "../../Donnees/citations"
-
 export default {
   gestionJoueur: {
-    joueursDisponibles: doggies,
+    joueursDisponibles: {
+      joueurs: [],
+      chargement: null
+    },
     joueurConnecte: null
   },
   quizz: {
-    citationsDisponibles: citations,
-    reponsesDisponibles: doggies,
     partie: {
+      synchronisation: null,
+      statut: null,
       score: 0,
-      question: {
+      defi: {
         intitule: "",
         propositions: [],
-        solutions: []
+        solutions: [],
+        chargement: null
       },
-      reponse: null,
-      correction: null
+      reponse: {
+        reponseDonne: null,
+        correction: null,
+        sauvegarde: null
+      }
+    },
+    classement: {
+      classifications: [],
+      chargement: null
     }
   }
 }
+
+// statut : EN_COURS, TERMINE
+// chargement : EN_COURS, TERMINE, ERREUR, NON_DEMANDE
+// synchronisation : EN_COURS, TERMINE, ERREUR, NON_DEMANDE
+// sauvegarde : EN COURS, TERMINE, ERREUR, NON_DEMANDE

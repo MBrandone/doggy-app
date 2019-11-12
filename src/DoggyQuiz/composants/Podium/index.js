@@ -18,15 +18,15 @@ class Podium extends React.Component {
     return (
       <div className="podium">
         <div className="premier">
-          <PhotoAvecScore/>
+          <PhotoAvecScore score="3"/>
         </div>
 
         <div className="deuxieme">
-          <PhotoAvecScore/>
+          <PhotoAvecScore score="2"/>
         </div>
 
         <div className="troisieme">
-          <PhotoAvecScore/>
+          <PhotoAvecScore score="1"/>
         </div>
 
         <div className="animation" id="podium"></div>

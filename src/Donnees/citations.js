@@ -215,6 +215,9 @@ export default [
   },{
     auteurs: ["MBI", "RDO"],
     citation: "La loi des deux R : un ricard et une rose, ça rend une femme heureuse."
+  },{
+    auteurs: ["MBI"],
+    citation: "Bon, soit on boit correctement, soit on y va !"
   },
   //JUJU
   {

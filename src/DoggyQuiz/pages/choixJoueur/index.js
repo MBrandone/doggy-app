@@ -1,48 +1,61 @@
 import React from "react"
-import { connect } from "react-redux"
-import { commencerPartie, choisirJoueur } from "../../actions"
+import { choisirJoueur, recupererDoggies, reinitialiserJoueur } from "../../actions"
 import LogoDoggyQuiz from "../../composants/LogoDoggyQuiz"
 import Podium from "../../composants/Podium"
 import BoutonNavigationBleu from "../../composants/BoutonNavigationBleu"
 import ListeJoueursSelectionnables from "../../composants/ListeJoueursSelectionnables"
 import "./choix-joueur.scss"
+import { connect } from "react-redux"
 
-const index = ({ joueursDisponibles, joueur, choisirJoueur }) => {
-  return (
-    <div className="choix-joueur">
+class ChoixJoueur extends React.Component {
+  async componentDidMount() {
+    await this.props.reinitialiserJoueur()
+    await this.props.recupererDoggies()
+  }
 
-      <div className="logo">
-        <LogoDoggyQuiz/>
-      </div>
+  render() {
+    return (
+      <div className="choix-joueur">
 
-      <div className="podium">
-        <Podium/>
-      </div>
-
-      <div className="selection">
-        <h2 className="titre">T'es qui ?</h2>
-        <ListeJoueursSelectionnables evenementNouveauJoueurChoisi={choisirJoueur}
-                                     joueursSelectionnables={joueursDisponibles} joueurSelectionne={joueur}/>
-        { joueur &&
-        <div className="conteneur-bouton-navigation">
-          <BoutonNavigationBleu lienNavigation="/questionnaire" texte="C'EST PARTI !"/>
+        <div className="logo">
+          <LogoDoggyQuiz/>
         </div>
-        }
-      </div>
 
-    </div>
-  )
+        <div className="podium">
+          <Podium/>
+        </div>
+
+        <div className="selection">
+          <h2 className="titre">T'es qui ?</h2>
+          <ListeJoueursSelectionnables evenementNouveauJoueurChoisi={this.props.choisirJoueur}
+                                       joueursSelectionnables={this.props.joueursDisponibles}
+                                       joueurSelectionne={this.props.joueur}/>
+          {this.props.joueur &&
+          <div className="conteneur-bouton-navigation">
+            <BoutonNavigationBleu lienNavigation="/demarrage-partie" texte="C'EST PARTI !"/>
+          </div>
+          }
+        </div>
+
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
-  joueursDisponibles: state.gestionJoueur.joueursDisponibles,
-  joueur: state.gestionJoueur.joueur
+  joueursDisponibles: state.gestionJoueur.joueursDisponibles.joueurs,
+  joueur: state.gestionJoueur.joueurConnecte
 })
 
 const mapDispatchToProps = dispatch => ({
+  recupererDoggies: _ => {
+    dispatch(recupererDoggies())
+  },
+  reinitialiserJoueur: _ => {
+    dispatch(reinitialiserJoueur())
+  },
   choisirJoueur: evenement => {
     const joueur = evenement.currentTarget.htmlFor
-    dispatch(commencerPartie())
     dispatch(choisirJoueur(joueur))
   }
 })
@@ -50,4 +63,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(index)
+)(ChoixJoueur)

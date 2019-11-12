@@ -1,0 +1,32 @@
+@import "../../../styles/couleurs";
+@import "../../../styles/polices";
+
+.demarrage {
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+
+  .loader {
+    margin: auto;
+  }
+
+  .conteneur-message-information {
+    margin: auto;
+  }
+
+  .sponsor {
+    margin: auto;
+
+    p {
+      color: $blanc;
+      text-align: center;
+
+      font-family: $anton;
+      opacity: 0.5;
+      font-size: 12px;
+      letter-spacing: 0.98px;
+    }
+  }
+}

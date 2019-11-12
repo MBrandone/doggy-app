@@ -6,11 +6,11 @@ import "./formulaireReponse.scss"
 import PhotoBulle from "../../composants/PhotoBulle"
 
 
-const FormulaireReponse = ({ reponsesPossibles, sauvegarderReponse, reponseSoumise }) => {
-  function sauvegarderReponseEtContinuer(evenement) {
+const FormulaireReponse = ({ reponsesPossibles, citation, sauvegarderReponse, reponseSoumise }) => {
+  async function sauvegarderReponseEtContinuer(evenement) {
     evenement.preventDefault()
     const reponse = evenement.target.value
-    sauvegarderReponse(reponse)
+    await sauvegarderReponse(reponse, citation)
     reponseSoumise()
   }
 
@@ -33,12 +33,13 @@ const FormulaireReponse = ({ reponsesPossibles, sauvegarderReponse, reponseSoumi
 }
 
 const mapStateToProps = state => ({
-  reponsesPossibles: state.quizz.partie.question.propositions
+  reponsesPossibles: state.quizz.partie.defi.propositions,
+  citation: state.quizz.partie.defi.intitule
 })
 
 const mapDispatchToProps = dispatch => ({
-  sauvegarderReponse: reponse => {
-    dispatch(sauvegarderReponse(reponse))
+  sauvegarderReponse: (reponse, citation) => {
+    dispatch(sauvegarderReponse(reponse, citation))
   }
 })
 
