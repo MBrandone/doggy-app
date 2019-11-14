@@ -1,20 +1,36 @@
 import React from "react"
 import "./listeEnChargement.scss"
+import PropTypes from "prop-types"
 
-const index = () => {
-  return (
-    <div className="liste-en-chargement">
-      {[1, 2, 3, 4].map(id => {
-        return (
-          <div key={id} className="item-chargement">
-            <div className="bulle">
+class ListeEnChargement extends React.Component {
+
+  render() {
+    const lignes = []
+    for (let i = 0; i < this.props.nombreLignes; i++) {
+      lignes.push("une lime")
+    }
+
+    return (
+      <div className="liste-en-chargement">
+        {lignes.map(id => {
+          return (
+            <div key={id} className="item-chargement">
+              <div className="bulle">
+              </div>
+              <p className="barre">
+              </p>
             </div>
-            <p className="barre">Hello</p>
-          </div>
-        )
-      })}
-    </div>
-  )
+          )
+        })}
+      </div>
+    )
+
+  }
 }
 
-export default index
+
+ListeEnChargement.propTypes = {
+  nombreLignes: PropTypes.number.isRequired
+}
+
+export default ListeEnChargement

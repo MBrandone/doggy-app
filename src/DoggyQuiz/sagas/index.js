@@ -3,11 +3,13 @@ import doggies from "../../Donnees/doggies"
 import citations from "../../Donnees/citations"
 
 //const baseUrl = "https://localhost:3000/api"
+const delay = (ms) => new Promise(res => setTimeout(res, ms))
 
 // JOUEURS DISPONIBLES----------------------------------------------------------------
 
 function* recupererDoggies() {
   //const doggies = yield fetch(baseUrl + '/doggies').then(reponse => reponse.json() );
+  yield delay(1000)
   yield put({ type: "RECUPERER_DOGGIES_SUCCES", payload : { doggies } })
   // .catch((erreur) => {
   // yield put({ type: "RECUPERER_DOGGIES_ERREUR" })

@@ -11,23 +11,25 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
+    height: 32px;
 
     .bulle {
       width: 32px;
       margin-right: 18px;
-      background: grey;
       border-radius: 999px;
       border: 1px solid white;
+      background-color: $gris-clair;
     }
 
     .barre {
-      font-family: $arial-rounded;
+      display: block;
+      border-radius: 999px;
       letter-spacing: 1.14px;
       font-size: 14px;
-      vertical-align: middle;
-      height: 100%;
-      line-height: 32px;
-      margin: 0;
+      height: 30%;
+      width: 70%;
+      background-color: $gris-clair;
+      align-self: center;
     }
   }
 }
