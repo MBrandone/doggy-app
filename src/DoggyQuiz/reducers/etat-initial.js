@@ -18,9 +18,9 @@ export default {
         chargement: null
       },
       reponse: {
-        reponseDonne: null,
+        reponseDonnee: null,
         correction: null,
-        sauvegarde: null
+        sauvegarde: "NON_DEMANDE"
       }
     },
     classement: {

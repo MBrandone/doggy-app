@@ -6,21 +6,19 @@
   flex-direction: column;
   margin: 48px auto;
   width: 330px;
-  height: 502px;
 
   .fiche-question {
-    position: relative;
     width: 100%;
+    min-height: 420px;
     background-color: $blanc;
     text-align: center;
     border-radius: 10px;
 
     .score {
-      margin: -20px auto 0;
+      margin: -20px auto 22px;
       width: 100px;
       height: 40px;
       line-height: 40px;
-      margin-bottom: 22px;
     }
 
     .intitule-defi {
@@ -33,7 +31,6 @@
   .premier-debordement {
     content: " ";
     display: block;
-    position: relative;
     margin: auto;
     background-color: $blanc;
     opacity: 0.5;
@@ -45,7 +42,6 @@
   .deuxieme-debordement {
     content: " ";
     display: block;
-    position: relative;
     margin: auto;
     background-color: $blanc;
     opacity: 0.16;

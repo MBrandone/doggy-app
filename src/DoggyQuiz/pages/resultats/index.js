@@ -21,7 +21,13 @@ const Index = () => (
       <div className="texte">
         <p className="texte-decu">La vérité tu m'as déçu !</p>
         <p className="texte-perdu">C'est perdu !</p>
+        <p className="texte-attente">
+          Le classement sera bientôt disponible !<br/>
+          En attendant, voici le classement provisoire :
+        </p>
       </div>
+
+
       <Classement/>
     </div>
 

@@ -10,23 +10,10 @@ const Index = () => (
             <div className="conteneur-classement-photo-bulle">
               <PhotoBulle/>
             </div>
-            <p className="nom">Marizouz</p>
-          </div>
-          <div className="conteneur-score">
-            32
-          </div>
-        </div>
-
-        <div className="item-classement">
-          <div className="identite">
-            <p className="position">2</p>
-            <div className="conteneur-classement-photo-bulle">
-              <PhotoBulle/>
-            </div>
             <p className="nom">Brondon</p>
           </div>
           <div className="conteneur-score">
-            31
+            87
           </div>
         </div>
       </div>

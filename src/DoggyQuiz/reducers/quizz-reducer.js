@@ -47,13 +47,18 @@ function demanderNouveauDefi(etatQuizz) {
 function demanderNouveauDefiSucces(etatQuizz, action) {
   const nouveauDefi = action.payload.defiSuivant
   nouveauDefi.chargement = "TERMINE"
+  const reponse = {
+    reponseDonnee: null,
+    correction: null,
+    sauvegarde: "NON_DEMANDE"
+  }
   return {
     ...etatQuizz,
     partie: {
       ...etatQuizz.partie,
-      defi: nouveauDefi
-    },
-    reponse: null
+      defi: nouveauDefi,
+      reponse
+    }
   }
 }
 
@@ -72,12 +77,14 @@ function demanderNouveauDefiErreur(etatQuizz) {
 }
 
 function sauvegarderReponse(etatQuizz, action) {
+  console.log("dans l'action : ", action.reponse)
   return {
     ...etatQuizz,
     partie: {
       ...etatQuizz.partie,
       reponse: {
-        ...etatQuizz.partie.reponse,
+        correction: null,
+        reponseDonnee: action.reponse,
         sauvegarde: "EN_COURS"
       }
     }
@@ -86,6 +93,7 @@ function sauvegarderReponse(etatQuizz, action) {
 
 function sauvegarderReponseSucces(etatQuizz, action) {
   const reponseCorrigee = action.payload.reponse
+  reponseCorrigee.sauvegarde = "TERMINE"
   return {
     ...etatQuizz,
     partie: {
@@ -163,5 +171,5 @@ export default creerReducer(etatInitial.quizz, {
   METTRE_A_JOUR_SCORE: mettreAJourScore,
   RECUPERER_CLASSEMENT: recupererClassement,
   RECUPERER_CLASSEMENT_SUCCES: recupererClassementSucces,
-  RECUPERER_CLASSEMENT_ERREUR: recupererClassementErreur,
+  RECUPERER_CLASSEMENT_ERREUR: recupererClassementErreur
 })

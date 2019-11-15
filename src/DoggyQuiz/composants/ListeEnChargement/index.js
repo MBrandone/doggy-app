@@ -7,7 +7,7 @@ class ListeEnChargement extends React.Component {
   render() {
     const lignes = []
     for (let i = 0; i < this.props.nombreLignes; i++) {
-      lignes.push("une lime")
+      lignes.push("une lime " + i)
     }
 
     return (

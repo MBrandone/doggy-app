@@ -39,7 +39,8 @@ function* commencerPartie() {
     },
     reponse: {
       reponseDonnee: null,
-      correction: null
+      correction: null,
+      sauvegarde: "NON_DEMANDE"
     }
   }
   yield put({ type: "COMMENCER_PARTIE_SUCCES", payload: { partie } })
@@ -59,7 +60,7 @@ function* sauvegarderReponse(action) {
   //const reponse = yield fetch(baseUrl + '/').then(reponse => reponse.json() );
   const correction = corrigerReponse(action.reponse, action.citation)
   const reponse = {
-    ...action.reponse,
+    reponseDonnee: action.reponse,
     correction
   }
   yield put({ type: "SAUVEGARDER_REPONSE_SUCCES", payload: { reponse } })
@@ -83,6 +84,7 @@ function* sauvegarderReponseWatcher() {
 // Correspond à choisir defi suivant
 function* demanderNouveauDefi() {
   //const defiSuivant = yield fetch(baseUrl + '/partie/:id/defiSuivant').then(reponse => reponse.json() );
+  yield delay(2000)
   const defiSuivant = choisirDefiSuivant()
   yield put({ type: "DEMANDER_NOUVEAU_DEFI_SUCCES", payload: { defiSuivant } })
   // .catch((erreur) => {

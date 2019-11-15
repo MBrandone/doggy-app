@@ -43,6 +43,15 @@
         font-family: $anton;
         font-size: 24px;
         letter-spacing: 1.95px;
+        margin-bottom: 10px;
+      }
+
+      .texte-attente {
+        font-family: $anton;
+        font-size: 12px;
+        letter-spacing: 0.98px;
+        color: $gris;
+        max-width: 300px;
       }
     }
   }
