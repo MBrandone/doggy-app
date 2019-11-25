@@ -1,5 +1,5 @@
 import React from "react"
-import PhotoBulle from "../../composants/PhotoBulle"
+import PhotoBulle from "../PhotoBulle"
 import "./listeJoueursSelectionnables.scss"
 import PropTypes from "prop-types"
 

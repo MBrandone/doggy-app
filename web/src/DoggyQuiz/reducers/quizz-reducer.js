@@ -77,7 +77,6 @@ function demanderNouveauDefiErreur(etatQuizz) {
 }
 
 function sauvegarderReponse(etatQuizz, action) {
-  console.log("dans l'action : ", action.reponse)
   return {
     ...etatQuizz,
     partie: {

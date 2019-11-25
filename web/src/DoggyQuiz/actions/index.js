@@ -1,10 +1,10 @@
+export const reinitialiserJoueur = _ => ({
+  type: "REINITIALISER_JOUEUR"
+})
+
 export const choisirJoueur = joueur => ({
   type: "CHOISIR_JOUEUR",
   joueur
-})
-
-export const reinitialiserJoueur = _ => ({
-  type: "REINITIALISER_JOUEUR"
 })
 
 export const recupererDoggies = _ => ({
@@ -44,18 +44,6 @@ export const sauvegarderReponseErreur = reponse => ({
   reponse
 })
 
-export const corrigerReponse = _ => ({
-  type: "CORRIGER_REPONSE",
-})
-
-export const mettreAJourScore = _ => ({
-  type: "METTRE_A_JOUR_SCORE",
-})
-
-export const choisirPremierDefi = _ => ({
-  type: "CHOISIR_PREMIER_DEFI",
-})
-
 export const demanderNouveauDefi = _ => ({
   type: "DEMANDER_NOUVEAU_DEFI",
 })
@@ -68,8 +56,6 @@ export const demanderNouveauDefiErreur = _ => ({
   type: "DEMANDER_NOUVEAU_DEFI_ERREUR",
 })
 
-export const retirerDefiDesDefisDisponibles = citation => ({
-  type: "RETIRER_DEFI_DES_DEFIS_DISPONIBLES",
-  citation
+export const mettreAJourScore = _ => ({
+  type: "METTRE_A_JOUR_SCORE",
 })
-

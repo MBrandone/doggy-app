@@ -89,13 +89,16 @@ export default [
     auteurs: ["BEJ"],
     citation: "Allez ! Ciao les cons !"
   },{
+    auteurs: ["BEJ"],
+    citation: "Le barman, il s'appelait Ivan ... Ivan Aboire"
+  },{
     auteurs: ["BEJ", "BME"],
     citation: "Et puis une enquête ça fera pas de mal non plus ! Qu'on nettoie un peu OCTO !"
   },
   //BRM
   {
     auteurs: ["BRM"],
-    citation: "Tu sais pas qui chui !"
+    citation: "Les meufs, tu leurs parles ... et elles répondent !"
   },{
     auteurs: ["BRM"],
     citation: "Mais téma wesh !"

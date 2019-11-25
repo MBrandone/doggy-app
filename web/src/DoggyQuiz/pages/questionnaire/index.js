@@ -5,9 +5,7 @@ import LogoDoggySkool from "../../composants/LogoDoggySkool"
 import FormulaireReponse from "../../conteneurs/FormulaireReponse"
 import {
   demanderNouveauDefi,
-  choisirPremierDefi,
   mettreAJourScore,
-  retirerDefiDesDefisDisponibles
 } from "../../actions"
 import { connect } from "react-redux"
 import "./questionnaire.scss"
@@ -67,15 +65,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  choisirPremierDefi: _ => {
-    dispatch(choisirPremierDefi())
-  },
   demanderNouveauDefi: _ => {
     dispatch(demanderNouveauDefi())
   },
   passerAEtapeSuivante: _ => {
     dispatch(mettreAJourScore())
-    dispatch(retirerDefiDesDefisDisponibles())
     dispatch(demanderNouveauDefi())
   }
 })
