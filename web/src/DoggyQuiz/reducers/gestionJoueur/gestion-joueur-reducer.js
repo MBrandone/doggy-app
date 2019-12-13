@@ -1,5 +1,5 @@
-import etatInitial from "./etat-initial"
-import { creerReducer } from "./reducer-utils"
+import etatInitialGestionJoueur from "./etat-initial"
+import { creerReducer } from "../reducer-utils"
 
 function choisirJoueur(etatGestionJoueur, action) {
   const trigrammeJoueurSelectionne = action.joueur
@@ -47,7 +47,7 @@ function recupererDoggiesErreur(etatGestionJoueur) {
   }
 }
 
-export default creerReducer(etatInitial.gestionJoueur, {
+export default creerReducer(etatInitialGestionJoueur, {
   CHOISIR_JOUEUR: choisirJoueur,
   REINITIALISER_JOUEUR: reinitialiserJoueur,
   RECUPERER_DOGGIES: recupererDoggies,

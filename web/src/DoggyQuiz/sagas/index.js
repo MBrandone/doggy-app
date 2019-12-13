@@ -1,19 +1,44 @@
-import { put, takeLatest, all } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from "redux-saga/effects"
 import doggies from "../../Donnees/doggies"
 import citations from "../../Donnees/citations"
 
-//const baseUrl = "https://localhost:3000/api"
+const baseUrl = "http://localhost:8080"
 const delay = (ms) => new Promise(res => setTimeout(res, ms))
+
+function apiGet(endpoint) {
+  return fetch(baseUrl + endpoint)
+    .then(response => response.json())
+    .catch((error) => {
+      console.log("erreur dans le fetch" + error)
+    })
+}
+
+function apiPost(endpoint, ressource) {
+  return fetch(baseUrl + endpoint,
+    {
+      method: "POST",
+      body: ressource
+    })
+    .then(response => response.json())
+    .catch((error) => {
+      console.log("erreur dans le fetch" + error)
+    })
+}
 
 // JOUEURS DISPONIBLES----------------------------------------------------------------
 
 function* recupererDoggies() {
-  //const doggies = yield fetch(baseUrl + '/doggies').then(reponse => reponse.json() );
-  yield delay(1000)
-  yield put({ type: "RECUPERER_DOGGIES_SUCCES", payload : { doggies } })
-  // .catch((erreur) => {
-  // yield put({ type: "RECUPERER_DOGGIES_ERREUR" })
-  // })
+  let doggiesRecuperes
+
+  try {
+    doggiesRecuperes = yield call(apiGet, "/doggies")
+
+  } catch (erreur) {
+    yield put({ type: "RECUPERER_DOGGIES_ERREUR" })
+
+  }
+
+  yield put({ type: "RECUPERER_DOGGIES_SUCCES", payload: { doggies: doggiesRecuperes } })
 }
 
 function* recupererDoggiesWatcher() {
@@ -26,9 +51,19 @@ function* recupererDoggiesWatcher() {
 // => 201 {id, score, personneAssociee, defiAPoser: { id, citation, reponsesPossibles } }
 // Correspond à créer nouvelle partie
 function* commencerPartie() {
-  // const request = { method: 'POST' }
-  // const body = { action.joueur }
-  //const partie = yield fetch(baseUrl + '/', request).then(reponse => reponse.json() );
+  //let partie
+//
+  //try {
+  //  partie = yield call(apiPost, "/parties", {joueur})
+//
+  //} catch (erreur) {
+  //  yield put({ type: "COMMENCER_PARTIE_ERREUR" })
+//
+  //}
+//
+  //yield put({ type: "COMMENCER_PARTIE_SUCCES", payload: { partie } })
+
+  //----------------------
   const partie = {
     score: 0,
     correction: null,
@@ -44,9 +79,7 @@ function* commencerPartie() {
     }
   }
   yield put({ type: "COMMENCER_PARTIE_SUCCES", payload: { partie } })
-  // .catch((erreur) => {
-  // yield put({ type: "SAUVEGARDER_PARTIE_ERREUR" })
-  // })
+
 }
 
 function* commencerPartieWatcher() {
@@ -136,7 +169,7 @@ function* demanderNouveauDefiWatcher() {
 function* recupererClassement() {
   //const doggies = yield fetch(baseUrl + '/').then(reponse => reponse.json() );
   const moi = doggies.find(doggy => doggy.trigramme === "BRM")
-  const premierePosition = { classification: 1, meilleurScore: 100, doggy: moi}
+  const premierePosition = { classification: 1, meilleurScore: 100, doggy: moi }
   const classifications = [premierePosition]
 
   yield put({ type: "RECUPERER_CLASSEMENT_SUCCES", payload: { classifications } })
@@ -156,5 +189,5 @@ export default function* rootSaga() {
     sauvegarderReponseWatcher(),
     demanderNouveauDefiWatcher(),
     recupererClassementWatcher()
-  ]);
+  ])
 }

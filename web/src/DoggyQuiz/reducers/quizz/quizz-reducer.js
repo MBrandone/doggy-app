@@ -1,5 +1,5 @@
-import etatInitial from "./etat-initial"
-import { creerReducer } from "./reducer-utils"
+import etatInitialQuizz from "./etat-initial"
+import { creerReducer } from "../reducer-utils"
 
 function commencerPartie(etatQuizz) {
   return {
@@ -126,38 +126,7 @@ function mettreAJourScore(etatQuizz) {
   }
 }
 
-function recupererClassement(etatQuizz) {
-  return {
-    ...etatQuizz,
-    classement: {
-      ...etatQuizz,
-      chargement: "EN_COURS"
-    }
-  }
-}
-
-function recupererClassementSucces(etatQuizz, action) {
-  const classifications = action.payload.classifications
-  return {
-    ...etatQuizz,
-    classement: {
-      classifications,
-      chargement: "TERMINE"
-    }
-  }
-}
-
-function recupererClassementErreur(etatQuizz) {
-  return {
-    ...etatQuizz,
-    classement: {
-      ...etatQuizz,
-      chargement: "ERREUR"
-    }
-  }
-}
-
-export default creerReducer(etatInitial.quizz, {
+export default creerReducer(etatInitialQuizz, {
   COMMENCER_PARTIE: commencerPartie,
   COMMENCER_PARTIE_SUCCES: commencerPartieSucces,
   COMMENCER_PARTIE_ERREUR: commencerPartieErreur,
@@ -168,7 +137,4 @@ export default creerReducer(etatInitial.quizz, {
   SAUVEGARDER_REPONSE_SUCCES: sauvegarderReponseSucces,
   SAUVEGARDER_REPONSE_ERREUR: sauvegarderReponseErreur,
   METTRE_A_JOUR_SCORE: mettreAJourScore,
-  RECUPERER_CLASSEMENT: recupererClassement,
-  RECUPERER_CLASSEMENT_SUCCES: recupererClassementSucces,
-  RECUPERER_CLASSEMENT_ERREUR: recupererClassementErreur
 })
