@@ -115,13 +115,15 @@ function sauvegarderReponseErreur(etatQuizz, action) {
   }
 }
 
-function mettreAJourScore(etatQuizz) {
+function mettreAJourPartie(etatQuizz) {
   const nouveauScore = etatQuizz.partie.reponse.correction ? etatQuizz.partie.score + 1 : etatQuizz.partie.score
+  const nouveauStatut = etatQuizz.partie.reponse.correction ? 'EN_COURS' : 'TERMINE'
   return {
     ...etatQuizz,
     partie: {
       ...etatQuizz.partie,
-      score: nouveauScore
+      score: nouveauScore,
+      statut: nouveauStatut
     }
   }
 }
@@ -136,5 +138,5 @@ export default creerReducer(etatInitialQuizz, {
   SAUVEGARDER_REPONSE: sauvegarderReponse,
   SAUVEGARDER_REPONSE_SUCCES: sauvegarderReponseSucces,
   SAUVEGARDER_REPONSE_ERREUR: sauvegarderReponseErreur,
-  METTRE_A_JOUR_SCORE: mettreAJourScore,
+  METTRE_A_JOUR_PARTIE: mettreAJourPartie,
 })

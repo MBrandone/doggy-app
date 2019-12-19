@@ -57,5 +57,5 @@ export const demanderNouveauDefiErreur = _ => ({
 })
 
 export const mettreAJourScore = _ => ({
-  type: "METTRE_A_JOUR_SCORE",
+  type: "METTRE_A_JOUR_PARTIE",
 })

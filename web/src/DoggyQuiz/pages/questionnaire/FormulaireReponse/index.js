@@ -1,19 +1,21 @@
 import React from "react"
-import { sauvegarderReponse } from "../../actions"
+import { sauvegarderReponse } from "../../../actions"
 import { connect } from "react-redux"
-import PropTypes from "prop-types"
 import "./formulaireReponse.scss"
-import PhotoBulle from "../../composants/PhotoBulle"
+import PhotoBulle from "../../../composants/PhotoBulle"
+import "../../../../styles/animations/index.scss"
 
-
-const FormulaireReponse = ({ citation, reponsesPossibles, reponseDonnee, reponseEstCorrecte, reponseEstIncorrecte, pasRepondu, sauvegarderReponse, reponseSoumise }) => {
+const FormulaireReponse = ({ citation, reponsesPossibles, reponseDonnee, reponseEnCoursDeValidation, reponseEstCorrecte, reponseEstIncorrecte, pasRepondu, sauvegarderReponse, reponseSoumise }) => {
   async function sauvegarderReponseEtContinuer(evenement) {
     evenement.preventDefault()
     if (pasRepondu) {
       const reponse = evenement.target.value
       await sauvegarderReponse(reponse, citation)
-      reponseSoumise()
     }
+  }
+
+  function reponseChoisie(reponseDonnee, reponseCourante) {
+    return reponseDonnee === reponseCourante && reponseEnCoursDeValidation
   }
 
   function bonneReponse(reponseDonnee, reponseEstCorrecte, reponseCourante) {
@@ -30,8 +32,9 @@ const FormulaireReponse = ({ citation, reponsesPossibles, reponseDonnee, reponse
         return (
           <button key={reponsePossible}
                   className={"proposition"
-                  + (bonneReponse(reponseDonnee, reponseEstCorrecte, reponsePossible) ? " reponse-correcte" : "")
-                  + (mauvaiseReponse(reponseDonnee, reponseEstIncorrecte, reponsePossible) ? " reponse-incorrecte" : "")
+                  + (reponseChoisie(reponseDonnee, reponsePossible) ? " reponse-choisie pulse" : "")
+                  + (bonneReponse(reponseDonnee, reponseEstCorrecte, reponsePossible) ? " reponse-correcte tada" : "")
+                  + (mauvaiseReponse(reponseDonnee, reponseEstIncorrecte, reponsePossible) ? " reponse-incorrecte tremble" : "")
                   }
                   value={reponsePossible}
                   onClick={sauvegarderReponseEtContinuer}>
@@ -53,7 +56,8 @@ const mapStateToProps = state => ({
   reponseDonnee: state.quizz.partie.reponse.reponseDonnee,
   reponseEstCorrecte: state.quizz.partie.reponse.correction === true,
   reponseEstIncorrecte: state.quizz.partie.reponse.correction === false,
-  pasRepondu: state.quizz.partie.reponse.sauvegarde === "NON_DEMANDE"
+  pasRepondu: state.quizz.partie.reponse.sauvegarde === "NON_DEMANDE",
+  reponseEnCoursDeValidation: state.quizz.partie.reponse.sauvegarde === "EN_COURS"
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -61,10 +65,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(sauvegarderReponse(reponse, citation))
   }
 })
-
-FormulaireReponse.propTypes = {
-  reponseSoumise: PropTypes.func.isRequired
-}
 
 export default connect(
   mapStateToProps,

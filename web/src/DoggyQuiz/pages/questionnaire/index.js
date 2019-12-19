@@ -2,32 +2,24 @@ import React from "react"
 import Score from "../../composants/Score"
 import IntituleDefi from "../../composants/IntituleDefi"
 import LogoDoggySkool from "../../composants/LogoDoggySkool"
-import FormulaireReponse from "../../conteneurs/FormulaireReponse"
+import FormulaireReponse from "./FormulaireReponse"
 import {
   demanderNouveauDefi,
-  mettreAJourScore,
 } from "../../actions"
 import { connect } from "react-redux"
 import "./questionnaire.scss"
 import { Redirect } from "react-router-dom"
-
 
 class JeuParolesDeDoggy extends React.Component {
   async componentDidMount() {
     await this.props.demanderNouveauDefi()
   }
 
-  async reponseSoumise() {
-    if (this.props.correction) {
-      this.props.passerAEtapeSuivante()
-    }
-  }
-
   render() {
     if (this.props.joueurConnecte === null)
       return (<Redirect push to="/choix-joueur"/>)
 
-    if (this.props.correction === false) {
+    if (this.props.statutPartie === 'TERMINE') {
       return (<Redirect push to="/resultats"/>)
     }
     return (
@@ -43,7 +35,7 @@ class JeuParolesDeDoggy extends React.Component {
           </div>
 
           <div className="formulaire-reponse">
-            {this.props.intitule && <FormulaireReponse reponseSoumise={this.reponseSoumise.bind(this)}/>}
+            {this.props.intitule && <FormulaireReponse />}
           </div>
 
         </div>
@@ -61,17 +53,13 @@ const mapStateToProps = state => ({
   joueurConnecte: state.gestionJoueur.joueurConnecte,
   score: state.quizz.partie.score,
   intitule: state.quizz.partie.defi.intitule,
-  correction: state.quizz.partie.reponse.correction
+  statutPartie: state.quizz.partie.statut
 })
 
 const mapDispatchToProps = dispatch => ({
   demanderNouveauDefi: _ => {
     dispatch(demanderNouveauDefi())
   },
-  passerAEtapeSuivante: _ => {
-    dispatch(mettreAJourScore())
-    dispatch(demanderNouveauDefi())
-  }
 })
 
 export default connect(

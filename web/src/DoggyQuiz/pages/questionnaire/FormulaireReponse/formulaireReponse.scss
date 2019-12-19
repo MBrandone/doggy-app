@@ -1,5 +1,5 @@
-@import "../../../styles/couleurs";
-@import "../../../styles/polices";
+@import "../../../../styles/couleurs";
+@import "../../../../styles/polices";
 
 .proposition {
   display: flex;
@@ -17,6 +17,7 @@
   font-stretch: normal;
   letter-spacing: 1.14px;
   background-color: $blanc;
+  outline: none;
 
   .conteneur-photo-bulle {
     height: 34px;
@@ -27,6 +28,11 @@
     display: block;
     width: 34px;
   }
+}
+
+.reponse-choisie {
+  background-color: $bleu;
+  color: $blanc;
 }
 
 .reponse-correcte {

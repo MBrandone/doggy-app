@@ -1,0 +1,16 @@
+@keyframes fast-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1080deg);
+  }
+}
+
+.tourne-en-rond {
+  animation-name: fast-spin;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+}
