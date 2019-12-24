@@ -1,0 +1,26 @@
+@keyframes apparition-tournante {
+  0% {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, -1080deg);
+    opacity: 0;
+  }
+
+  80% {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, 30deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.apparition-tournante {
+  animation-name: apparition-tournante;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+}
