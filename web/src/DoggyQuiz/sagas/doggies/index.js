@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects"
-import { apiGet } from "../../api/httpClient"
+import { apiGet } from "../../services/api/httpClient"
 
 function* recupererDoggies() {
   let doggiesRecuperes

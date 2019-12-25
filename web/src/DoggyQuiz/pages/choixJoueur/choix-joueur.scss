@@ -19,6 +19,7 @@
   .selection {
     background: $blanc;
     padding-top: 10px;
+    padding-bottom: 10px;
     margin-top: -4px;
 
     .titre {
@@ -28,13 +29,6 @@
       font-family: $anton;
       font-weight: normal;
       font-size: 16px;
-    }
-
-    .conteneur-bouton-navigation {
-      position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
   }

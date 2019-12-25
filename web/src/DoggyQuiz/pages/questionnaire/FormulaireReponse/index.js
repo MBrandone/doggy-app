@@ -5,7 +5,7 @@ import "./formulaireReponse.scss"
 import PhotoBulle from "../../../composants/PhotoBulle"
 import "../../../../styles/animations/index.scss"
 
-const FormulaireReponse = ({ citation, reponsesPossibles, reponseDonnee, reponseEnCoursDeValidation, reponseEstCorrecte, reponseEstIncorrecte, pasRepondu, sauvegarderReponse, reponseSoumise }) => {
+const FormulaireReponse = ({ citation, reponsesPossibles, reponseDonnee, reponseEnCoursDeValidation, reponseEstCorrecte, reponseEstIncorrecte, pasRepondu, sauvegarderReponse }) => {
   async function sauvegarderReponseEtContinuer(evenement) {
     evenement.preventDefault()
     if (pasRepondu) {

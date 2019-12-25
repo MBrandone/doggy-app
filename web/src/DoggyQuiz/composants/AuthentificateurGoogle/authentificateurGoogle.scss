@@ -1,0 +1,33 @@
+@import "../../../styles/polices";
+
+.authentificateur-google {
+  font-family: $arial-rounded;
+  display: flex;
+  justify-content: center;
+
+  .formulaire-authentification {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .texte-authentification {
+      margin-bottom: 10px;
+    }
+
+    .conteneur-logo-google {
+      width: 30px;
+      justify-content: center;
+    }
+  }
+
+  .authentification-en-cours {
+    text-align: center;
+  }
+
+  .authentification-termine {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+

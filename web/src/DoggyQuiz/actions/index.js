@@ -16,6 +16,10 @@ export const recupererDoggiesSucces = doggies => ({
   doggies
 })
 
+export const demarrerAuthentification = _ => ({
+  type: "DEMARRER_AUTHENTIFICATION"
+})
+
 export const commencerPartie = _ => ({
   type: "COMMENCER_PARTIE"
 })
