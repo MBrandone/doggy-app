@@ -18,6 +18,8 @@ import rootSaga from './DoggyQuiz/sagas';
 
 import * as serviceWorker from "./serviceWorker"
 
+require('dotenv').config()
+
 const sagaMiddleware = createSagaMiddleware();
 const doggyQuizStore = createStore(doggyQuizReducer, applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga);
