@@ -18,18 +18,35 @@
 
   .selection {
     background: $blanc;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 20px 0;
     margin-top: -4px;
 
-    .titre {
-      margin-top: 0;
-      margin-bottom: 22px;
-      text-align: center;
-      font-family: $anton;
-      font-weight: normal;
-      font-size: 16px;
+    .authentification {
+      margin-bottom: 20px;
     }
+
+    .proposition-citation {
+      .bouton {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        width: 281px;
+        height: 48px;
+        border-radius: 26px;
+        border: solid 1px $gris-fonce;
+        font-family: $arial-rounded;
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        letter-spacing: 1.14px;
+        background-color: $blanc;
+        outline: none;
+      }
+    }
+
 
   }
 

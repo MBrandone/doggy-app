@@ -1,22 +1,31 @@
 @import "../../../styles/polices";
+@import "../../../styles/couleurs";
 
 .authentificateur-google {
   font-family: $arial-rounded;
   display: flex;
   justify-content: center;
 
-  .formulaire-authentification {
+  .bouton-authentification {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-    .texte-authentification {
-      margin-bottom: 10px;
-    }
+    flex-direction: row;
+    justify-content: space-around;
+    width: 281px;
+    height: 48px;
+    border-radius: 26px;
+    border: solid 1px $gris-fonce;
+    font-family: $arial-rounded;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    letter-spacing: 1.14px;
+    background-color: $blanc;
+    outline: none;
+    cursor: pointer;
 
     .conteneur-logo-google {
-      width: 30px;
+      width: 24px;
       justify-content: center;
     }
   }
