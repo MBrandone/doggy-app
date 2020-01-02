@@ -16,15 +16,6 @@ function authentifierJoueur(etatGestionJoueur, action) {
   }
 }
 
-function choisirJoueur(etatGestionJoueur, action) {
-  const trigrammeJoueurSelectionne = action.joueur
-  const joueurSelectionne = etatGestionJoueur.joueursDisponibles.joueurs.find(joueur => joueur.trigramme === trigrammeJoueurSelectionne)
-  return {
-    ...etatGestionJoueur,
-    joueurConnecte: joueurSelectionne
-  }
-}
-
 function recupererDoggies(etatGestionJoueur) {
   return {
     ...etatGestionJoueur,
@@ -56,7 +47,6 @@ function recupererDoggiesErreur(etatGestionJoueur) {
 }
 
 export default creerReducer(etatInitialGestionJoueur, {
-  CHOISIR_JOUEUR: choisirJoueur,
   DEMARRER_AUTHENTIFICATION: demarrerAuthentification,
   AUTHENTIFIER_JOUEUR: authentifierJoueur,
   RECUPERER_DOGGIES: recupererDoggies,

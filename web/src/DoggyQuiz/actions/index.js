@@ -1,12 +1,3 @@
-export const reinitialiserJoueur = _ => ({
-  type: "REINITIALISER_JOUEUR"
-})
-
-export const choisirJoueur = joueur => ({
-  type: "CHOISIR_JOUEUR",
-  joueur
-})
-
 export const recupererDoggies = _ => ({
   type: "RECUPERER_DOGGIES"
 })
@@ -16,9 +7,16 @@ export const recupererDoggiesSucces = doggies => ({
   doggies
 })
 
+export const recupererDoggiesErreur = doggies => ({
+  type: "RECUPERER_DOGGIES_ERREUR",
+  doggies
+})
+
 export const demarrerAuthentification = _ => ({
   type: "DEMARRER_AUTHENTIFICATION"
 })
+
+//----------------------------------------------
 
 export const commencerPartie = _ => ({
   type: "COMMENCER_PARTIE"
